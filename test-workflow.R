@@ -23,15 +23,20 @@ phi <- 0.05
 # Use lognormal distribution here
 # Mean LAI is exp(0.5) ~~ 1.65
 X <- exp(rmvn(1, rep(0.5, n), 0.2 * exp(-phi * distance)))
-hist(X, xlab = "LAI")
+## hist(X, xlab = "LAI")
 
 Xraster <- rasterFromXYZ(cbind(simgrid - 0.5, t(X)))
-plot(Xraster)
+## plot(Xraster)
 
 lai <- Xraster
 
 # Now, try using this LAI field to run PRO4SAIL
 wl <- 400:2500
+# Last dimension:
+# 1 - Bi-hemispherical
+# 2 - Hemispherical-directional
+# 3 - Directional-hemispherical
+# 4 - Bi-directional
 result <- array(numeric(), c(NROW(lai), NCOL(lai), length(wl), 4))
 pb <- progress::progress_bar$new(total = length(lai))
 for (i in 1:NROW(lai)) {
@@ -48,17 +53,39 @@ for (i in 1:NROW(lai)) {
   }
 }
 
-# Last dimension:
-# 1 - Bi-hemispherical
-# 2 - Hemispherical-directional
-# 3 - Directional-hemispherical
-# 4 - Bi-directional
-result_nir <- result[,, 380, 4]
-result_r <- result[,, 270, 4]
-result_ndvi <- (result_nir - result_r) / (result_nir + result_r)
-result_ndvi_raster <- raster(result_ndvi, xmn = 1, xmx = 50, ymn = 1, ymx = 50)
-par(mfrow = c(1, 3))
-plot(result_ndvi_raster, main = "NDVI")
-plot(Xraster, main = "True LAI")
-plot(getValues(result_ndvi_raster), getValues(Xraster),
-     xlab = "NDVI", ylab = "LAI")
+# Create the binary file
+# BSQ: row x column x band, which matches the array format
+outdir <- file.path("data", "outputs")
+dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
+writeBin(c(result[,,,4]), file.path(outdir, "prosail-bdr.bsq"))
+writeBin(c(result[,,,3]), file.path(outdir, "prosail-hdr.bsq"))
+
+# Now, write the header files
+hdr_bdr <- c(
+  "ENVI",
+  "description = {PROSAIL-simulated reflectance}",
+  glue::glue("lines = {NCOL(result)}"),
+  glue::glue("samples = {NROW(result)}"),
+  glue::glue("bands = {length(wl)}"),
+  "header offset = 0",
+  "file type = ENVI Standard",
+  "data type = 5",
+  "interleave = bsq",
+  "sensor type = Unknown",
+  "byte order = 0",
+  "wavelength units = Nanometers",
+  glue::glue("wavelength = { <<paste(wl, collapse = ', ')>> }",
+             .open = "<<", .close = ">>")
+)
+writeLines(hdr_bdr, file.path(outdir, "prosail-bdr.bsq.hdr"))
+writeLines(hdr_bdr, file.path(outdir, "prosail-hdr.bsq.hdr"))
+
+## result_nir <- result[,, 380, 4]
+## result_r <- result[,, 270, 4]
+## result_ndvi <- (result_nir - result_r) / (result_nir + result_r)
+## result_ndvi_raster <- raster(result_ndvi, xmn = 1, xmx = 50, ymn = 1, ymx = 50)
+## par(mfrow = c(1, 3))
+## plot(result_ndvi_raster, main = "NDVI")
+## plot(Xraster, main = "True LAI")
+## plot(getValues(result_ndvi_raster), getValues(Xraster),
+##      xlab = "NDVI", ylab = "LAI")
