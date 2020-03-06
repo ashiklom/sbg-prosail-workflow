@@ -33,6 +33,7 @@ lai <- Xraster
 # Now, try using this LAI field to run PRO4SAIL
 wl <- 400:2500
 result <- array(numeric(), c(NROW(lai), NCOL(lai), length(wl), 4))
+pb <- progress::progress_bar$new(total = length(lai))
 for (i in 1:NROW(lai)) {
   for (j in 1:NCOL(lai)) {
     result[i, j, ,] <- PEcAnRTM::pro4sail(c(
@@ -43,6 +44,7 @@ for (i in 1:NROW(lai)) {
       q = 0.01, tts = 30, tto = 10,
       psi = 0, psoil = 0.7
     ))
+    pb$tick()
   }
 }
 
