@@ -116,14 +116,16 @@ true_values <- list(
 )
 saveRDS(true_values, file.path(outdir, "true-values.rds"))
 
-if (interactive()) {
-  result_nir <- result[,, 380, 4]
-  result_r <- result[,, 270, 4]
-  result_ndvi <- (result_nir - result_r) / (result_nir + result_r)
-  result_ndvi_raster <- raster(result_ndvi, xmn = 1, xmx = 50, ymn = 1, ymx = 50)
-  par(mfrow = c(1, 3))
-  plot(lai, main = "True LAI")
-  plot(result_ndvi_raster, main = "NDVI")
-  plot(getValues(result_ndvi_raster), getValues(lai),
-       xlab = "NDVI", ylab = "LAI")
-}
+result_nir <- result[,, 380, 4]
+result_r <- result[,, 270, 4]
+result_ndvi <- (result_nir - result_r) / (result_nir + result_r)
+result_ndvi_raster <- raster(result_ndvi, xmn = 1, xmx = 50, ymn = 1, ymx = 50)
+
+dir.create("figures", showWarnings = FALSE)
+pdf(file.path("figures", "random-lai.pdf"), width = 14, height = 7)
+par(mfrow = c(1, 3), mar = c(5, 5, 4, 2))
+plot(lai, main = "True LAI")
+plot(result_ndvi_raster, main = "NDVI")
+plot(getValues(result_ndvi_raster), getValues(lai),
+     xlab = "NDVI (780 nm / 670 nm)", ylab = "LAI")
+dev.off()
