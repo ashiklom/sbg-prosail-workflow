@@ -83,11 +83,22 @@ for (i in seq_len(ni)) {
 }
 
 # Create the binary file
-# BSQ: row x column x band, which matches the array format
+
 outdir <- file.path("data", "outputs")
 dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
-writeBin(c(result[,,,4]), file.path(outdir, "prosail-bdr.bsq"))
-writeBin(c(result[,,,3]), file.path(outdir, "prosail-hdr.bsq"))
+
+# Swap the rows and columns of the PROSAIL array. Not sure why this is
+# necessary, but maybe it's something to do with column- vs. row-major order of
+# memory storage? Regardless, this makes the Python image appear correct.
+result_t <- array(numeric(), c(nj, ni, length(wl), 4))
+for (b in seq_len(4)) {
+  for (a in seq_along(wl)) {
+    result_t[,, a, b] <- t(result[,, a, b])
+  }
+}
+# BSQ: row x column x band, which matches the array format
+writeBin(c(result_t[,,,4]), file.path(outdir, "prosail-bdr.bsq"))
+writeBin(c(result_t[,,,3]), file.path(outdir, "prosail-hdr.bsq"))
 
 # Now, write the header files
 hdr_bdr <- c(
