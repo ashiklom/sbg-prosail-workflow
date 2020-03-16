@@ -131,6 +131,13 @@ for (icell in seq_len(ncell)) {
 
 nc_close(outnc)
 
+saveRDS(
+  list(xy = xy,
+       N = N, Cab = Cab, Car = Car, Cbrown, Cw = Cw, Cm = Cm,
+       lidfa = lidfa, lidfb = lidfb, lai = elai),
+  path(outdir, "clm-monthly-true-values.rds")
+)
+
 # Test the output file
 if (interactive()) {
   nc2 <- nc_open(path(outdir, "clm-monthly.nc"))
