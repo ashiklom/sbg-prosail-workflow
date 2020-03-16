@@ -18,3 +18,8 @@ This can be read in directly by the Python `spectral` package -- the `read-bsq.p
 
 - [ ] Combine with Hypertrace, Isofit, or an atmospheric RTM (e.g. LibRadTran, 6S, MODTRAN) to generate TOA reflectance
 - [ ] Replace random inputs with vegetation model-driven (e.g. CLM, ED2) or observed (e.g. FIA) inputs
+
+## Additional notes
+
+- This project uses [`renv`](https://rstudio.github.io/renv/articles/renv.html) for reproducible package management.
+For the scripts in this project to work correctly, before trying to run any of the scripts in here, you should run `renv::restore()` from the R console to install the correct versions of all dependent packages.
