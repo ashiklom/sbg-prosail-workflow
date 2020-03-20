@@ -132,12 +132,21 @@ fit_prosail_cell <- function(cell, dat = all_tidy) {
   test2 <- optfun(xx)
   stopifnot(is.numeric(test2), test2 < 1e7)
 
+  # With base R optimization
   fit <- optim(
     start, optfun,
     method = "L-BFGS-B",
     lower = c(1, 0, 0, 0, 0, 0, 0),
     upper = c(10, 150, 50, 0.1, 0.1, 10, 1)
   )
+
+  # With differential evolution algorithm
+  ## fit <- DEoptim::DEoptim(
+  ##   optfun,
+  ##   lower = c(1, 0, 0, 0, 0, 0, 0),
+  ##   upper = c(10, 150, 50, 0.1, 0.1, 10, 1),
+  ##   control = list(itermax = 1000)
+  ## )
 
   fit
 }
