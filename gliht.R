@@ -7,6 +7,7 @@ library(purrr)
 library(dplyr)
 library(tidyr)
 library(readr)
+library(tibble)
 library(ggplot2)
 
 dir_walk(here("R"), source)
@@ -154,6 +155,16 @@ for (cell in cells) {
   )
   fits[[as.character(cell)]] <- result$par
 }
+
+fit_params <- fits %>%
+  map_dfr(enframe, name = "parameter", .id = "cell") %>%
+  mutate(cell = as.numeric(cell))
+
+ggplot(fit_params) +
+  aes(x = "", y = value) +
+  geom_violin() +
+  geom_jitter() +
+  facet_wrap(vars(parameter), scales = "free_y")
 
 sim_fits <- map(fits, prosail2gliht) %>%
   map(as_tibble) %>%
