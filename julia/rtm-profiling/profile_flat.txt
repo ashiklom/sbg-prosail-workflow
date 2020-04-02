@@ -1,0 +1,364 @@
+ Count  Overhead File                                                                                                             Line Function
+ =====  ======== ====                                                                                                             ==== ========
+     1         0 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl         47 *
+     1         0 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl         66 mul!
+     1         0 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl        208 mul!
+     1         0 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl        470 gemv!(::Array{Float64,1}, ::Char, ::Array{Float64,2}, ::Array{Float64,1}, ::Bool, ::Bool)
+     1         0 @Base/abstractarray.jl                                                                                            481 checkbounds
+     1         0 @Base/abstractarray.jl                                                                                            502 checkbounds
+     1         0 @Base/abstractarray.jl                                                                                            725 copyto!
+     1         0 @Base/abstractarray.jl                                                                                           1354 _typed_vcat(::Type{Float64}, ::NTuple{2101,Array{Float64,2}})
+     1         0 @Base/array.jl                                                                                                    271 unsafe_copyto!
+     1         0 @Base/array.jl                                                                                                    338 fill!(::Array{Bool,1}, ::Bool)
+     1         0 @Base/array.jl                                                                                                    505 zeros
+     1         0 @Base/array.jl                                                                                                   1602 vcat(::Array{Int64,1}, ::Array{Int64,1})
+     1         0 @Base/boot.jl                                                                                                     571 check_top_bit
+     1         0 @Base/boot.jl                                                                                                     682 toUInt64
+     1         0 @Base/boot.jl                                                                                                     712 UInt64
+     1         0 @Base/broadcast.jl                                                                                                900 copyto!
+     1         0 @Base/essentials.jl                                                                                               390 cconvert
+     1         0 @Base/floatfuncs.jl                                                                                               129 round
+     1         0 @Base/int.jl                                                                                                      136 abs
+     1         0 @Base/int.jl                                                                                                      432 <<
+     1         0 @Base/math.jl                                                                                                     107 evalpoly(::Float64, ::NTuple{38,Float64})
+     1         0 @Base/operators.jl                                                                                                193 !=
+     1         0 @Base/operators.jl                                                                                                294 >
+     1         0 @Base/operators.jl                                                                                                516 afoldl
+     1         0 @Base/promotion.jl                                                                                                311 +(::Float64, ::Int64)
+     1         0 @Base/promotion.jl                                                                                                312 *(::Float64, ::Int64)
+     1         0 @Base/promotion.jl                                                                                                313 -
+     1         0 @Base/range.jl                                                                                                    311 OneTo
+     1         0 @Base/range.jl                                                                                                    320 OneTo
+     1         0 @Base/range.jl                                                                                                    945 vcat
+     1         0 @Base/reduce.jl                                                                                                    41 mapfoldl_impl
+     1         0 @Base/reduce.jl                                                                                                    45 foldl_impl
+     1         0 @Base/reduce.jl                                                                                                   157 #mapfoldl#189
+     1         0 @Base/reduce.jl                                                                                                   157 mapfoldl
+     1         0 @Base/reduce.jl                                                                                                   283 #mapreduce#193
+     1         0 @Base/reduce.jl                                                                                                   283 mapreduce
+     1         0 @Base/reduce.jl                                                                                                   486 sum
+     1         0 @Base/simdloop.jl                                                                                                  78 macro expansion
+     1         0 @Base/special/exp.jl                                                                                              108 exp(::Float64)
+     1         0 @Base/special/exp.jl                                                                                              111 exp(::Float64)
+     1         0 @Base/special/exp.jl                                                                                              119 exp(::Float64)
+     1         0 @Base/special/exp.jl                                                                                              122 exp(::Float64)
+     1         0 @Base/special/log.jl                                                                                              158 log_proc1
+     1         0 @Base/special/log.jl                                                                                              172 log_proc1
+     1         0 @Base/special/log.jl                                                                                              178 log_proc1
+     1         0 @Base/special/rem_pio2.jl                                                                                         254 rem_pio2_kernel
+     1         0 @Base/special/trig.jl                                                                                             106 cos(::Float64)
+     1         0 @Base/special/trig.jl                                                                                             108 cos(::Float64)
+     1         0 @Base/special/trig.jl                                                                                             141 cos_kernel
+     1         0 @Base/tuple.jl                                                                                                    157 map
+     1         0 @RTM/src/expint.jl                                                                                                 31 expint(::Float64)
+     1         0 @RTM/src/gpm.jl                                                                                                    18 gpm(::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/gpm.jl                                                                                                    22 gpm(::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/gpm.jl                                                                                                    23 gpm(::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/prospect.jl                                                                                               10 prospect4(::Float64, ::Float32, ::Float64, ::Float64)
+     1         0 @RTM/src/prospect.jl                                                                                               11 prospect4(::Float64, ::Float32, ::Float64, ::Float64)
+     1         0 @RTM/src/refltrans.jl                                                                                              11 refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/refltrans.jl                                                                                              25 refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/refltrans.jl                                                                                              28 refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/refltrans.jl                                                                                              30 refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/refltrans.jl                                                                                              55 Jfunc2
+     1         0 @RTM/src/rtgeom.jl                                                                                                  7 rtgeom(::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/rtgeom.jl                                                                                                 16 rtgeom(::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     1         0 @RTM/src/sail.jl                                                                                                   17 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     1         0 @RTM/src/sail.jl                                                                                                   24 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     1         0 @RTM/src/tav_abs.jl                                                                                                 2 tav_abs(::Int64, ::Float64)
+     1         0 @RTM/src/tav_abs.jl                                                                                                32 tav_abs(::Int64, ::Float64)
+     1         0 @RTM/src/tav_abs.jl                                                                                                36 tav_abs(::Int64, ::Float64)
+     1         0 @RTM/src/volscatt.jl                                                                                                7 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     1         0 @RTM/src/volscatt.jl                                                                                               23 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     1         1 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/blas.jl          587 gemv!(::Char, ::Float64, ::Array{Float64,2}, ::Array{Float64,1}, ::Float64, ::Array{Float64,1})
+     1         1 @Base/array.jl                                                                                                      ? getindex
+     1         1 @Base/array.jl                                                                                                      ? setindex!
+     1         1 @Base/array.jl                                                                                                    151 vect(::Float32, ::Vararg{Any,N} where N)
+     1         1 @Base/array.jl                                                                                                    156 size
+     1         1 @Base/array.jl                                                                                                    221 length
+     1         1 @Base/array.jl                                                                                                    788 getindex
+     1         1 @Base/array.jl                                                                                                    847 setindex!(::Array{Float64,1}, ::Array{Float64,1}, ::UnitRange{Int64})
+     1         1 @Base/boot.jl                                                                                                     561 is_top_bit_set
+     1         1 @Base/float.jl                                                                                                    376 round
+     1         1 @Base/float.jl                                                                                                    460 <=(::Float64, ::Float64)
+     1         1 @Base/int.jl                                                                                                       53 +
+     1         1 @Base/int.jl                                                                                                       96 flipsign
+     1         1 @Base/int.jl                                                                                                      410 <=
+     1         1 @Base/int.jl                                                                                                      425 <<
+     1         1 @Base/multidimensional.jl                                                                                           ? copyto!(::Array{Real,1}, ::Array{Int64,1})
+     1         1 @Base/multidimensional.jl                                                                                         922 fill!(::SubArray{Float64,1,Array{Float64,1},Tuple{UnitRange{Int64}},true}, ::Int64)
+     1         1 @Base/promotion.jl                                                                                                313 -(::Float64, ::Irrational{:π})
+     1         1 @Base/promotion.jl                                                                                                409 max
+     1         1 @Base/simdloop.jl                                                                                                   ? macro expansion
+     1         1 @Base/special/exp.jl                                                                                               91 exp(::Float64)
+     1         1 @Base/special/exp.jl                                                                                               98 exp(::Float64)
+     1         1 @Base/special/trig.jl                                                                                             103 cos(::Float64)
+     1         1 @Base/tuple.jl                                                                                                    207 _foldl_impl
+     1         1 @RTM/src/gpm.jl                                                                                                     ? gpm(::Float64, ::Float64, ::Float64)
+     1         1 @RTM/src/gpm.jl                                                                                                    27 gpm(::Float64, ::Float64, ::Float64)
+     1         1 @RTM/src/hotspot.jl                                                                                                 6 hotspot(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     1         1 @RTM/src/suits.jl                                                                                                   ? suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+     1         1 @RTM/src/tav_abs.jl                                                                                                 2 ==
+     2         0 @Base/abstractarray.jl                                                                                             75 axes
+     2         0 @Base/float.jl                                                                                                    502 <(::Float64, ::Int64)
+     2         0 @Base/indices.jl                                                                                                  249 setindex_shape_check
+     2         0 @Base/multidimensional.jl                                                                                         779 macro expansion
+     2         0 @Base/special/exp.jl                                                                                               52 exp_kernel
+     2         0 @Base/special/exp.jl                                                                                              115 exp(::Float64)
+     2         0 @Base/special/exp.jl                                                                                              116 exp(::Float64)
+     2         0 @Base/special/rem_pio2.jl                                                                                          51 cody_waite_2c_pio2
+     2         0 @Base/special/rem_pio2.jl                                                                                         249 rem_pio2_kernel
+     2         0 @Base/special/rem_pio2.jl                                                                                         266 rem_pio2_kernel
+     2         0 @Base/special/trig.jl                                                                                             111 cos(::Float64)
+     2         0 @Base/special/trig.jl                                                                                             138 cos_kernel
+     2         0 @Base/special/trig.jl                                                                                             147 cos_kernel
+     2         0 @Base/special/trig.jl                                                                                             148 cos_kernel
+     2         0 @Base/subarray.jl                                                                                                  28 SubArray
+     2         0 @Base/subarray.jl                                                                                                  38 SubArray
+     2         0 @Base/subarray.jl                                                                                                 164 view
+     2         0 @Base/subarray.jl                                                                                                 169 unsafe_view
+     2         0 @RTM/src/gpm.jl                                                                                                    50 gpm(::Float64, ::Float64, ::Float64)
+     2         0 @RTM/src/refltrans.jl                                                                                              29 refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     2         0 @RTM/src/rtgeom.jl                                                                                                  6 rtgeom(::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     2         0 @RTM/src/sail.jl                                                                                                   34 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     2         0 @RTM/src/tav_abs.jl                                                                                                25 tav_abs(::Int64, ::Float64)
+     2         0 @RTM/src/volscatt.jl                                                                                                8 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     2         0 @RTM/src/volscatt.jl                                                                                               19 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     2         1 @Base/multidimensional.jl                                                                                         768 _setindex!
+     2         1 @Base/tuple.jl                                                                                                     61 iterate
+     2         1 @RTM/src/tav_abs.jl                                                                                                41 tav_abs(::Int64, ::Float64)
+     2         1 @RTM/src/volscatt.jl                                                                                               42 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     2         2 @Base/array.jl                                                                                                    827 setindex!
+     2         2 @Base/bool.jl                                                                                                      41 |
+     2         2 @Base/float.jl                                                                                                    502 Float64
+     2         2 @Base/multidimensional.jl                                                                                         959 copyto!(::Array{Real,1}, ::Array{Int64,1})
+     2         2 @Base/special/trig.jl                                                                                               ? cos(::Float64)
+     2         2 @Base/subarray.jl                                                                                                  22 SubArray
+     2         2 @RTM/src/lidf.jl                                                                                                    5 dcum(::Float64, ::Float64, ::Int64)
+     2         2 @RTM/src/sail.jl                                                                                                   59 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     3         0 @Base/cartesian.jl                                                                                                 64 macro expansion
+     3         0 @Base/intfuncs.jl                                                                                                 262 literal_pow
+     3         0 @Base/multidimensional.jl                                                                                         781 macro expansion
+     3         0 @Base/multidimensional.jl                                                                                         786 macro expansion
+     3         0 @Base/special/log.jl                                                                                              279 log(::Float64)
+     3         0 @Base/special/trig.jl                                                                                             151 cos_kernel
+     3         0 @RTM/src/gpm.jl                                                                                                     7 gpm(::Float64, ::Float64, ::Float64)
+     3         0 @RTM/src/lidf.jl                                                                                                    7 dcum(::Float64, ::Float64, ::Int64)
+     3         0 @RTM/src/sail.jl                                                                                                   16 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     3         0 @RTM/src/tav_abs.jl                                                                                                30 tav_abs(::Int64, ::Float64)
+     3         1 @Base/special/trig.jl                                                                                              32 sin(::Float64)
+     3         1 @RTM/src/volscatt.jl                                                                                                6 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     3         2 @Base/special/exp.jl                                                                                              123 exp(::Float64)
+     3         3 @Base/int.jl                                                                                                       49 <
+     3         3 @Base/promotion.jl                                                                                                398 ==
+     4         0 @Base/abstractarray.jl                                                                                           1366 _typed_vcat(::Type{Float64}, ::NTuple{2101,Array{Float64,2}})
+     4         0 @Base/multidimensional.jl                                                                                         962 copyto!(::Array{Real,1}, ::Array{Int64,1})
+     4         0 @Base/special/exp.jl                                                                                              117 exp(::Float64)
+     4         0 @Base/special/trig.jl                                                                                              71 sin_kernel
+     4         0 @Base/special/trig.jl                                                                                              72 sin_kernel
+     4         0 @Base/special/trig.jl                                                                                             142 cos_kernel
+     4         0 @RTM/src/lidf.jl                                                                                                    6 dcum(::Float64, ::Float64, ::Int64)
+     4         0 @RTM/src/volscatt.jl                                                                                                9 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     4         4 @Base/float.jl                                                                                                      ? rem_pio2_kernel
+     5         0 @Base/special/rem_pio2.jl                                                                                         224 rem_pio2_kernel
+     5         0 @Base/special/trig.jl                                                                                              79 sin_kernel
+     5         0 @Base/special/trig.jl                                                                                              81 sin_kernel
+     5         0 @Base/special/trig.jl                                                                                             139 cos_kernel
+     5         0 @RTM/src/volscatt.jl                                                                                               53 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     5         3 @Base/special/trig.jl                                                                                             101 cos(::Float64)
+     5         4 @RTM/src/sail.jl                                                                                                   74 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     5         5 @Base/float.jl                                                                                                    401 +(::Float64, ::Float64)
+     5         5 @Base/float.jl                                                                                                    407 /(::Float64, ::Float64)
+     5         5 @Base/float.jl                                                                                                    454 ==
+     5         5 @RTM/src/sail.jl                                                                                                   13 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     5         5 @RTM/src/suits.jl                                                                                                  51 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+     6         0 @Base/float.jl                                                                                                    494 <
+     6         0 @Base/operators.jl                                                                                                294 >(::Float64, ::Int64)
+     6         0 @Base/special/rem_pio2.jl                                                                                          53 cody_waite_2c_pio2
+     6         0 @Base/special/rem_pio2.jl                                                                                         221 rem_pio2_kernel
+     6         0 @RTM/src/refltrans.jl                                                                                              13 refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     6         0 @RTM/src/tav_abs.jl                                                                                                27 tav_abs(::Int64, ::Float64)
+     6         1 @Base/abstractarray.jl                                                                                           1372 typed_vcat(::Type{Float64}, ::Array{Float64,2}, ::Array{Float64,2}, ::Array{Float64,2}, ::Vararg{Array{Float64,2},N} where N)
+     6         1 @Base/multidimensional.jl                                                                                         774 _unsafe_setindex!(::IndexLinear, ::Array{Float64,2}, ::Array{Float64,2}, ::UnitRange{Int64}, ::Base.Slice{Base.OneTo{Int64}})
+     6         6 @Base/float.jl                                                                                                    405 *(::Float64, ::Float64)
+     6         6 @Base/int.jl                                                                                                      277 &
+     7         0 @Base/abstractarray.jl                                                                                           1279 hcat
+     7         0 @Base/abstractarray.jl                                                                                           1451 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+     7         0 @Base/float.jl                                                                                                    503 <(::Float64, ::Int64)
+     7         0 @Base/promotion.jl                                                                                                259 _promote
+     7         0 @Base/promotion.jl                                                                                                282 promote
+     7         0 @Base/special/trig.jl                                                                                             105 cos(::Float64)
+     7         0 @RTM/src/gpm.jl                                                                                                    13 gpm(::Float64, ::Float64, ::Float64)
+     7         0 @RTM/src/gpm.jl                                                                                                    52 gpm(::Float64, ::Float64, ::Float64)
+     7         0 @RTM/src/volscatt.jl                                                                                               14 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     7         1 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/SparseArrays/src/sparsevector.jl  1078 vcat(::Array{Float64,2}, ::Array{Float64,2}, ::Array{Float64,2}, ::Vararg{Array{Float64,2},N} where N)
+     7         3 @Base/abstractarray.jl                                                                                           1465 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+     7         3 @RTM/src/refltrans.jl                                                                                              48 Jfunc1(::Float64, ::Float64, ::Int64)
+     7         7 @Base/array.jl                                                                                                    825 setindex!
+     7         7 @Base/float.jl                                                                                                     60 Float64
+     7         7 @Base/special/trig.jl                                                                                              31 sin(::Float64)
+     8         0 @Base/int.jl                                                                                                      434 >>>
+     8         0 @Base/math.jl                                                                                                    1136 highword
+     8         0 @Base/number.jl                                                                                                     7 convert
+     8         0 @Base/special/rem_pio2.jl                                                                                         245 rem_pio2_kernel
+     8         0 @RTM/src/gpm.jl                                                                                                    11 gpm(::Float64, ::Float64, ::Float64)
+     8         1 @RTM/src/prospect.jl                                                                                                6 gpm_k(::Array{Float64,1}, ::Array{Float64,1}, ::Float64)
+     8         4 @Base/special/trig.jl                                                                                             100 cos(::Float64)
+     8         8 @Base/float.jl                                                                                                    458 <
+     8         8 @Base/int.jl                                                                                                      426 >>>
+     8         8 @RTM/src/suits.jl                                                                                                  49 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+     9         0 @Base/math.jl                                                                                                    1149 poshighword
+     9         0 @Base/special/trig.jl                                                                                              36 sin(::Float64)
+     9         0 @RTM/src/refltrans.jl                                                                                               4 refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+     9         0 @RTM/src/volscatt.jl                                                                                                5 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+     9         9 @RTM/src/sail.jl                                                                                                   73 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+     9         9 @RTM/src/suits.jl                                                                                                  48 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+     9         9 @RTM/src/volscatt.jl                                                                                                ? volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    10         0 @Base/abstractarray.jl                                                                                           1279 hcat(::Float64, ::Float64, ::Float64, ::Vararg{Float64,N} where N)
+    10         0 @Base/array.jl                                                                                                   1597 vcat(::Array{Int64,1}, ::Array{Int64,1})
+    10         0 @Base/float.jl                                                                                                    536 isnan
+    10         0 @Base/promotion.jl                                                                                                314 /
+    10        10 @Base/abstractarray.jl                                                                                           1463 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+    10        10 @Base/float.jl                                                                                                    456 !=
+    11         0 @Base/special/rem_pio2.jl                                                                                          52 cody_waite_2c_pio2
+    11         0 @Base/special/rem_pio2.jl                                                                                         238 rem_pio2_kernel
+    11        11 @Base/array.jl                                                                                                    787 getindex
+    11        11 @Base/broadcast.jl                                                                                               1238 broadcasted(::Function, ::Int64, ::Base.OneTo{Int64})
+    11        11 @Base/essentials.jl                                                                                               416 reinterpret
+    11        11 @RTM/src/suits.jl                                                                                                  52 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    12         0 @Base/array.jl                                                                                                    504 zeros
+    12        12 @RTM/src/volscatt.jl                                                                                                2 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    13         0 @Base/abstractarray.jl                                                                                           1450 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+    13         0 @Base/array.jl                                                                                                    500 zeros
+    13         0 @Base/float.jl                                                                                                    554 isfinite
+    13         0 @Base/float.jl                                                                                                    564 isinf
+    13         0 @RTM/src/sail.jl                                                                                                   58 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    13        13 @RTM/src/suits.jl                                                                                                  47 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    14        14 @Base/int.jl                                                                                                      411 <=
+    15         0 @Base/promotion.jl                                                                                                312 *
+    15         7 @RTM/src/sail.jl                                                                                                   63 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    15        15 @RTM/src/suits.jl                                                                                                  50 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    16         0 @Base/special/trig.jl                                                                                              80 sin_kernel
+    16         5 @Base/special/trig.jl                                                                                              50 sin(::Float64)
+    16         9 @Base/abstractarray.jl                                                                                           1449 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+    17         0 @Base/array.jl                                                                                                    657 _array_for
+    17         0 @Base/boot.jl                                                                                                     415 Array
+    17         2 @RTM/src/lidf.jl                                                                                                   18 dcum(::Float64, ::Float64, ::Int64)
+    17        11 @Base/multidimensional.jl                                                                                         769 _setindex!
+    17        17 @Base/boot.jl                                                                                                     407 Array
+    18        13 @Base/special/rem_pio2.jl                                                                                         231 rem_pio2_kernel
+    18        18 @Base/float.jl                                                                                                    407 /
+    18        18 @Base/special/rem_pio2.jl                                                                                           ? rem_pio2_kernel
+    19         0 @Base/abstractarray.jl                                                                                           1073 setindex!
+    19         0 @Base/special/trig.jl                                                                                              82 sin_kernel
+    20         0 @Base/math.jl                                                                                                    1148 poshighword
+    20         0 @Base/special/rem_pio2.jl                                                                                         219 rem_pio2_kernel
+    21        11 @RTM/src/sail.jl                                                                                                   76 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    21        13 @RTM/src/sail.jl                                                                                                   55 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    22         0 @Base/special/trig.jl                                                                                              74 sin_kernel
+    22        15 @RTM/src/sail.jl                                                                                                   66 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    22        17 @RTM/src/volscatt.jl                                                                                               86 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    23         0 @RTM/src/volscatt.jl                                                                                               13 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    24         0 @Base/special/trig.jl                                                                                             116 cos(::Float64)
+    24        12 @Base/special/trig.jl                                                                                              38 sin(::Float64)
+    24        24 @Base/abstractarray.jl                                                                                           1462 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+    25         0 @RTM/src/sail.jl                                                                                                   30 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    26         2 @Base/special/trig.jl                                                                                              44 sin(::Float64)
+    27         0 @Base/array.jl                                                                                                    541 Array
+    27         0 @Base/boot.jl                                                                                                     430 Array
+    28        18 @RTM/src/sail.jl                                                                                                   69 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    28        28 @RTM/src/lidf.jl                                                                                                   12 dcum(::Float64, ::Float64, ::Int64)
+    31        31 @RTM/src/sail.jl                                                                                                   60 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    32         0 @RTM/src/prospect.jl                                                                                                5 gpm_k(::Array{Float64,1}, ::Array{Float64,1}, ::Float64)
+    33        33 @Base/abstractarray.jl                                                                                           1456 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+    34         0 @Base/abstractarray.jl                                                                                           1392 cat_similar
+    34         0 @Base/abstractarray.jl                                                                                           1441 _cat_t
+    34         0 @Base/array.jl                                                                                                    361 similar
+    37         0 @RTM/src/lidf.jl                                                                                                   15 dcum(::Float64, ::Float64, ::Int64)
+    37        37 @Base/special/trig.jl                                                                                               ? sin(::Float64)
+    38        23 @RTM/src/sail.jl                                                                                                   72 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    39        33 @RTM/src/volscatt.jl                                                                                               76 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    40         0 @RTM/src/prospect.jl                                                                                               12 prospect4(::Float64, ::Float32, ::Float64, ::Float64)
+    41         0 @Base/math.jl                                                                                                     107 evalpoly
+    41         0 @RTM/src/lidf.jl                                                                                                   16 dcum(::Float64, ::Float64, ::Int64)
+    41        37 @RTM/src/volscatt.jl                                                                                               83 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    42         0 @Base/math.jl                                                                                                     107 macro expansion
+    42         0 @Base/special/trig.jl                                                                                              73 sin_kernel
+    42         0 @RTM/src/pro4sail.jl                                                                                               11 prospect4_4sail(::Float64, ::Float32, ::Float64, ::Float64, ::Int64, ::Array{Float64,1})
+    42        19 @Base/special/trig.jl                                                                                              30 sin(::Float64)
+    42        41 @RTM/src/volscatt.jl                                                                                               59 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    42        42 @RTM/src/suits.jl                                                                                                  54 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    45         0 @Base/range.jl                                                                                                    942 vcat
+    46        12 @RTM/src/sail.jl                                                                                                   43 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    46        46 @RTM/src/volscatt.jl                                                                                               56 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+    47         0 @Base/special/trig.jl                                                                                             143 cos_kernel
+    51         6 @Base/special/trig.jl                                                                                              35 sin(::Float64)
+    58        58 @Base/float.jl                                                                                                    410 muladd
+    59         0 @Base/special/trig.jl                                                                                             140 cos_kernel
+    59         0 @RTM/src/sail.jl                                                                                                   29 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    59        59 @RTM/src/suits.jl                                                                                                  39 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    60         0 @Base/boot.jl                                                                                                     422 Array
+    60         0 @Base/broadcast.jl                                                                                                196 similar
+    69        69 @Base/float.jl                                                                                                    528 abs
+    70        11 @RTM/src/sail.jl                                                                                                   49 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+    73        52 @Base/operators.jl                                                                                                529 *
+    77         0 @Base/abstractarray.jl                                                                                            670 similar
+    77         0 @Base/abstractarray.jl                                                                                            671 similar
+    81         0 @RTM/src/lidf.jl                                                                                                   14 dcum(::Float64, ::Float64, ::Int64)
+    83        79 @RTM/src/suits.jl                                                                                                  44 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    93         0 @Base/special/trig.jl                                                                                              41 sin(::Float64)
+    96        92 @RTM/src/suits.jl                                                                                                  40 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    96        94 @RTM/src/suits.jl                                                                                                  42 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    97        95 @RTM/src/suits.jl                                                                                                  35 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+    99        96 @RTM/src/suits.jl                                                                                                  41 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+   104       104 @Base/abstractarray.jl                                                                                           1461 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+   110        95 @RTM/src/suits.jl                                                                                                  16 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+   121       121 @Base/float.jl                                                                                                    403 -
+   123       122 @RTM/src/volscatt.jl                                                                                               57 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   126         0 @Base/boot.jl                                                                                                     414 Array
+   130       130 @RTM/src/suits.jl                                                                                                  38 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+   133         0 @Base/special/trig.jl                                                                                              75 sin_kernel
+   137        30 @Base/special/trig.jl                                                                                              46 sin(::Float64)
+   137       137 @Base/float.jl                                                                                                    401 +
+   140       139 @RTM/src/suits.jl                                                                                                  34 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+   141       141 @RTM/src/suits.jl                                                                                                  37 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+   157       146 @Base/abstractarray.jl                                                                                           1455 __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+   165         8 @Base/special/trig.jl                                                                                              48 sin(::Float64)
+   181       179 @RTM/src/suits.jl                                                                                                  43 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+   192       189 @RTM/src/volscatt.jl                                                                                               82 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   194       194 @Base/boot.jl                                                                                                     405 Array
+   225       223 @RTM/src/volscatt.jl                                                                                               81 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   278       278 @Base/tuple.jl                                                                                                     81 indexed_iterate
+   323       323 @Base/float.jl                                                                                                    405 *
+   378         7 @Base/abstractarray.jl                                                                                           1445 _cat_t
+   403       403 @RTM/src/volscatt.jl                                                                                               90 volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   412         0 @Base/abstractarray.jl                                                                                           1435 _cat
+   412         0 @Base/abstractarray.jl                                                                                           1437 #cat_t#109
+   412         0 @Base/abstractarray.jl                                                                                           1437 cat_t##kw
+   412         0 @Base/abstractarray.jl                                                                                           1502 vcat
+   412         0 @Base/abstractarray.jl                                                                                           1564 #cat#110
+   412         0 @Base/abstractarray.jl                                                                                           1564 cat##kw
+   678        22 @RTM/src/lidf.jl                                                                                                   13 dcum(::Float64, ::Float64, ::Int64)
+   986         0 @Base/broadcast.jl                                                                                                820 materialize
+  1366         0 @RTM/src/sail.jl                                                                                                   31 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  1410        37 @RTM/src/suits.jl                                                                                                  17 suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  2809        20 @RTM/src/sail.jl                                                                                                   38 foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  4597         5 @RTM/src/sail.jl                                                                                                   13 foursail
+  4616         0 @RTM/src/pro4sail.jl                                                                                                5 foursail_lrt(::Array{Float64,2}, ::Array{Float64,1}, ::Int64)
+  4617         1 @RTM/src/pro4sail.jl                                                                                               12 prospect4_4sail(::Float64, ::Float32, ::Float64, ::Float64, ::Int64, ::Array{Float64,1})
+  4659         0 @Base/broadcast.jl                                                                                                564 getindex
+  4659         0 @Base/broadcast.jl                                                                                                604 _broadcast_getindex
+  4659         0 @Base/broadcast.jl                                                                                                631 _broadcast_getindex_evalf
+  4659         0 @Base/broadcast.jl                                                                                                820 materialize(::Base.Broadcast.Broadcasted{Base.Broadcast.DefaultArrayStyle{2},Nothing,typeof(prosail_av),Tuple{Float64,Array{Float32,2},Float64,Float64,Int64,Float64}})
+  4659         0 @Base/broadcast.jl                                                                                                840 copy
+  4659         0 @Base/broadcast.jl                                                                                                864 copyto!
+  4659         0 @Base/broadcast.jl                                                                                                909 copyto!
+  4659         0 @Base/broadcast.jl                                                                                                910 macro expansion
+  4659         0 @Base/simdloop.jl                                                                                                  77 macro expansion
+  4659         0 @RTM/src/pro4sail.jl                                                                                               31 prospect4_4sailh
+  4659         0 REPL[18]                                                                                                            1 prosail_av(::Float64, ::Float32, ::Float64, ::Float64, ::Int64, ::Float64)
+  4660         0 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/REPL/src/REPL.jl                    86 eval_user_input(::Any, ::REPL.REPLBackend)
+  4660         0 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/REPL/src/REPL.jl                   118 macro expansion
+  4660         0 @Base/task.jl                                                                                                     358 (::REPL.var"#26#27"{REPL.REPLBackend})()
+  4660         1 @Base/boot.jl                                                                                                     331 eval(::Module, ::Any)
+Total snapshots: 4807

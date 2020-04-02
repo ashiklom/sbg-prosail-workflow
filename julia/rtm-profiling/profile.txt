@@ -1,0 +1,674 @@
+Overhead ╎ [+additional indent] Count File:Line; Function
+=========================================================
+  1╎1    @Base/array.jl:847; setindex!(::Array{Float64,1}, ::Array{Float64,1}, ::UnitRange{Int64})
+  1╎1    @Base/special/trig.jl:103; cos(::Float64)
+  2╎2    @Base/special/trig.jl:30; sin(::Float64)
+  5╎5    @Base/special/trig.jl:50; sin(::Float64)
+   ╎4660 @Base/task.jl:358; (::REPL.var"#26#27"{REPL.REPLBackend})()
+   ╎ 4660 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/REPL/src/REPL.jl:118; macro expansion
+   ╎  4660 /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/REPL/src/REPL.jl:86; eval_user_input(::Any, ::REPL.REPLBackend)
+  1╎   4660 @Base/boot.jl:331; eval(::Module, ::Any)
+   ╎    4659 @Base/broadcast.jl:820; materialize(::Base.Broadcast.Broadcasted{Base.Broadcast.DefaultArrayStyle{2},Nothing,typeof(prosail_av),Tuple{Float64,Array{Float32,2},Float64,Float64,Int64,Float64}})
+   ╎     4659 @Base/broadcast.jl:840; copy
+   ╎    ╎ 4659 @Base/broadcast.jl:864; copyto!
+   ╎    ╎  4659 @Base/broadcast.jl:909; copyto!
+   ╎    ╎   4659 @Base/simdloop.jl:77; macro expansion
+   ╎    ╎    4659 @Base/broadcast.jl:910; macro expansion
+   ╎    ╎     4659 @Base/broadcast.jl:564; getindex
+   ╎    ╎    ╎ 4659 @Base/broadcast.jl:604; _broadcast_getindex
+   ╎    ╎    ╎  4659 @Base/broadcast.jl:631; _broadcast_getindex_evalf
+   ╎    ╎    ╎   4659 REPL[18]:1; prosail_av(::Float64, ::Float32, ::Float64, ::Float64, ::Int64, ::Float64)
+   ╎    ╎    ╎    4659 @RTM/src/pro4sail.jl:31; prospect4_4sailh
+   ╎    ╎    ╎     42   @RTM/src/pro4sail.jl:11; prospect4_4sail(::Float64, ::Float32, ::Float64, ::Float64, ::Int64, ::Array{Float64,1})
+   ╎    ╎    ╎    ╎ 1    @RTM/src/prospect.jl:10; prospect4(::Float64, ::Float32, ::Float64, ::Float64)
+  1╎    ╎    ╎    ╎  1    @Base/array.jl:151; vect(::Float32, ::Vararg{Any,N} where N)
+   ╎    ╎    ╎    ╎ 1    @RTM/src/prospect.jl:11; prospect4(::Float64, ::Float32, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎  1    /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl:47; *
+   ╎    ╎    ╎    ╎   1    /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl:208; mul!
+   ╎    ╎    ╎    ╎    1    /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl:66; mul!
+   ╎    ╎    ╎    ╎     1    /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/matmul.jl:470; gemv!(::Array{Float64,1}, ::Char, ::Array{Float64,2}, ::Array{Float64,1}, ::Bool, ::Bool)
+  1╎    ╎    ╎    ╎    ╎ 1    /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/LinearAlgebra/src/blas.jl:587; gemv!(::Char, ::Float64, ::Array{Float64,2}, ::Array{Float64,1}, ::Float64, ::Array{Float64,1})
+   ╎    ╎    ╎    ╎ 40   @RTM/src/prospect.jl:12; prospect4(::Float64, ::Float32, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎  32   @RTM/src/prospect.jl:5; gpm_k(::Array{Float64,1}, ::Array{Float64,1}, ::Float64)
+   ╎    ╎    ╎    ╎   32   @Base/broadcast.jl:820; materialize
+   ╎    ╎    ╎    ╎    32   @Base/broadcast.jl:840; copy
+   ╎    ╎    ╎    ╎     32   @Base/broadcast.jl:864; copyto!
+   ╎    ╎    ╎    ╎    ╎ 32   @Base/broadcast.jl:909; copyto!
+   ╎    ╎    ╎    ╎    ╎  32   @Base/simdloop.jl:77; macro expansion
+   ╎    ╎    ╎    ╎    ╎   32   @Base/broadcast.jl:910; macro expansion
+   ╎    ╎    ╎    ╎    ╎    32   @Base/broadcast.jl:564; getindex
+   ╎    ╎    ╎    ╎    ╎     32   @Base/broadcast.jl:604; _broadcast_getindex
+   ╎    ╎    ╎    ╎    ╎    ╎ 32   @Base/broadcast.jl:631; _broadcast_getindex_evalf
+  1╎    ╎    ╎    ╎    ╎    ╎  1    @RTM/src/gpm.jl:0; gpm(::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎  3    @RTM/src/gpm.jl:7; gpm(::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @Base/special/exp.jl:119; exp(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/operators.jl:294; >
+  1╎    ╎    ╎    ╎    ╎    ╎     1    @Base/int.jl:49; <
+  1╎    ╎    ╎    ╎    ╎    ╎   1    @Base/special/exp.jl:123; exp(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @RTM/src/expint.jl:31; expint(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/math.jl:107; evalpoly(::Float64, ::NTuple{38,Float64})
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/math.jl:107; macro expansion
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎  8    @RTM/src/gpm.jl:11; gpm(::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @RTM/src/tav_abs.jl:25; tav_abs(::Int64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/special/trig.jl:35; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/trig.jl:80; sin_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/operators.jl:529; *
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎   3    @RTM/src/tav_abs.jl:27; tav_abs(::Int64, ::Float64)
+  1╎    ╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:403; -
+  1╎    ╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/intfuncs.jl:262; literal_pow
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/operators.jl:529; *
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @RTM/src/tav_abs.jl:32; tav_abs(::Int64, ::Float64)
+  1╎    ╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @RTM/src/tav_abs.jl:36; tav_abs(::Int64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/intfuncs.jl:262; literal_pow
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/operators.jl:529; *
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+  1╎    ╎    ╎    ╎    ╎    ╎   2    @RTM/src/tav_abs.jl:41; tav_abs(::Int64, ::Float64)
+  1╎    ╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎  7    @RTM/src/gpm.jl:13; gpm(::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @RTM/src/tav_abs.jl:25; tav_abs(::Int64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/special/trig.jl:46; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/trig.jl:140; cos_kernel
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎   3    @RTM/src/tav_abs.jl:27; tav_abs(::Int64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/intfuncs.jl:262; literal_pow
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/operators.jl:529; *
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎    2    @Base/promotion.jl:314; /
+  2╎    ╎    ╎    ╎    ╎    ╎     2    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    ╎    ╎   3    @RTM/src/tav_abs.jl:30; tav_abs(::Int64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎    3    @Base/special/log.jl:279; log(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/log.jl:158; log_proc1
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/log.jl:172; log_proc1
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/log.jl:178; log_proc1
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎  1    @RTM/src/gpm.jl:18; gpm(::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @Base/promotion.jl:313; -
+  1╎    ╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎    ╎    ╎  1    @RTM/src/gpm.jl:22; gpm(::Float64, ::Float64, ::Float64)
+  1╎    ╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    ╎    ╎  1    @RTM/src/gpm.jl:23; gpm(::Float64, ::Float64, ::Float64)
+  1╎    ╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:401; +
+  1╎    ╎    ╎    ╎    ╎    ╎  1    @RTM/src/gpm.jl:27; gpm(::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎  2    @RTM/src/gpm.jl:50; gpm(::Float64, ::Float64, ::Float64)
+  2╎    ╎    ╎    ╎    ╎    ╎   2    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    ╎    ╎  7    @RTM/src/gpm.jl:52; gpm(::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎   7    @Base/abstractarray.jl:1279; hcat
+   ╎    ╎    ╎    ╎    ╎    ╎    7    @Base/array.jl:657; _array_for
+   ╎    ╎    ╎    ╎    ╎    ╎     7    @Base/abstractarray.jl:670; similar
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 7    @Base/abstractarray.jl:671; similar
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎  7    @Base/boot.jl:415; Array
+  7╎    ╎    ╎    ╎    ╎    ╎    ╎   7    @Base/boot.jl:407; Array
+  1╎    ╎    ╎    ╎  8    @RTM/src/prospect.jl:6; gpm_k(::Array{Float64,1}, ::Array{Float64,1}, ::Float64)
+  1╎    ╎    ╎    ╎   7    /Users/julia/buildbot/worker/package_macos64/build/usr/share/julia/stdlib/v1.4/SparseArrays/src/sparsevector.jl:1078; vcat(::Array{Float64,2}, ::Array{Float64,2}, ::Array{Float64,2}, ::Vararg{Array{Float64,2},N} where N)
+  1╎    ╎    ╎    ╎    6    @Base/abstractarray.jl:1372; typed_vcat(::Type{Float64}, ::Array{Float64,2}, ::Array{Float64,2}, ::Array{Float64,2}, ::Vararg{Array{Float64,2},N} where N)
+   ╎    ╎    ╎    ╎     1    @Base/abstractarray.jl:1354; _typed_vcat(::Type{Float64}, ::NTuple{2101,Array{Float64,2}})
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/reduce.jl:486; sum
+   ╎    ╎    ╎    ╎    ╎  1    @Base/reduce.jl:283; mapreduce
+   ╎    ╎    ╎    ╎    ╎   1    @Base/reduce.jl:283; #mapreduce#193
+   ╎    ╎    ╎    ╎    ╎    1    @Base/reduce.jl:157; mapfoldl
+   ╎    ╎    ╎    ╎    ╎     1    @Base/reduce.jl:157; #mapfoldl#189
+   ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/reduce.jl:41; mapfoldl_impl
+   ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/reduce.jl:45; foldl_impl
+  1╎    ╎    ╎    ╎    ╎    ╎   1    @Base/tuple.jl:207; _foldl_impl
+   ╎    ╎    ╎    ╎     4    @Base/abstractarray.jl:1366; _typed_vcat(::Type{Float64}, ::NTuple{2101,Array{Float64,2}})
+   ╎    ╎    ╎    ╎    ╎ 4    @Base/abstractarray.jl:1073; setindex!
+  1╎    ╎    ╎    ╎    ╎  2    @Base/multidimensional.jl:768; _setindex!
+   ╎    ╎    ╎    ╎    ╎   1    @Base/abstractarray.jl:502; checkbounds
+   ╎    ╎    ╎    ╎    ╎    1    @Base/abstractarray.jl:481; checkbounds
+   ╎    ╎    ╎    ╎    ╎     1    @Base/abstractarray.jl:75; axes
+  1╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/array.jl:156; size
+   ╎    ╎    ╎    ╎    ╎  2    @Base/multidimensional.jl:769; _setindex!
+   ╎    ╎    ╎    ╎    ╎   2    @Base/multidimensional.jl:774; _unsafe_setindex!(::IndexLinear, ::Array{Float64,2}, ::Array{Float64,2}, ::UnitRange{Int64}, ::Base.Slice{Base.OneTo{Int64}})
+   ╎    ╎    ╎    ╎    ╎    1    @Base/multidimensional.jl:779; macro expansion
+   ╎    ╎    ╎    ╎    ╎     1    @Base/indices.jl:249; setindex_shape_check
+  1╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/array.jl:221; length
+   ╎    ╎    ╎    ╎    ╎    1    @Base/multidimensional.jl:781; macro expansion
+   ╎    ╎    ╎    ╎    ╎     1    @Base/cartesian.jl:64; macro expansion
+   ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/multidimensional.jl:786; macro expansion
+  1╎    ╎    ╎    ╎    ╎    ╎  1    @Base/array.jl:827; setindex!
+  1╎    ╎    ╎     4617 @RTM/src/pro4sail.jl:12; prospect4_4sail(::Float64, ::Float32, ::Float64, ::Float64, ::Int64, ::Array{Float64,1})
+   ╎    ╎    ╎    ╎ 4616 @RTM/src/pro4sail.jl:5; foursail_lrt(::Array{Float64,2}, ::Array{Float64,1}, ::Int64)
+   ╎    ╎    ╎    ╎  15   @Base/abstractarray.jl:1073; setindex!
+ 11╎    ╎    ╎    ╎   15   @Base/multidimensional.jl:769; _setindex!
+  1╎    ╎    ╎    ╎    4    @Base/multidimensional.jl:774; _unsafe_setindex!(::IndexLinear, ::Array{Real,2}, ::Array{Float64,2}, ::Int64, ::Base.Slice{Base.OneTo{Int64}})
+   ╎    ╎    ╎    ╎     1    @Base/multidimensional.jl:779; macro expansion
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/indices.jl:249; setindex_shape_check
+   ╎    ╎    ╎    ╎    ╎  1    @Base/operators.jl:193; !=
+  1╎    ╎    ╎    ╎    ╎   1    @Base/promotion.jl:398; ==
+   ╎    ╎    ╎    ╎     2    @Base/multidimensional.jl:781; macro expansion
+   ╎    ╎    ╎    ╎    ╎ 2    @Base/cartesian.jl:64; macro expansion
+   ╎    ╎    ╎    ╎    ╎  2    @Base/multidimensional.jl:786; macro expansion
+  1╎    ╎    ╎    ╎    ╎   1    @Base/array.jl:0; setindex!
+  1╎    ╎    ╎    ╎    ╎   1    @Base/array.jl:827; setindex!
+  1╎    ╎    ╎    ╎  1    @Base/array.jl:0; getindex
+  2╎    ╎    ╎    ╎  2    @Base/array.jl:787; getindex
+  1╎    ╎    ╎    ╎  1    @Base/array.jl:788; getindex
+  5╎    ╎    ╎    ╎  4597 @RTM/src/sail.jl:13; foursail
+  5╎    ╎    ╎    ╎   5    @RTM/src/sail.jl:13; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎   3    @RTM/src/sail.jl:16; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    1    @Base/promotion.jl:312; *
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    1    @Base/special/trig.jl:100; cos(::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:528; abs
+   ╎    ╎    ╎    ╎    1    @Base/special/trig.jl:101; cos(::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:458; <
+   ╎    ╎    ╎    ╎   1    @RTM/src/sail.jl:17; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    1    @Base/special/trig.jl:100; cos(::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:528; abs
+   ╎    ╎    ╎    ╎   1    @RTM/src/sail.jl:24; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    1    @Base/operators.jl:529; *
+   ╎    ╎    ╎    ╎     1    @Base/operators.jl:516; afoldl
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎   59   @RTM/src/sail.jl:29; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    5    @Base/array.jl:1597; vcat(::Array{Int64,1}, ::Array{Int64,1})
+  5╎    ╎    ╎    ╎     5    @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎    27   @Base/boot.jl:430; Array
+   ╎    ╎    ╎    ╎     27   @Base/array.jl:541; Array
+   ╎    ╎    ╎    ╎    ╎ 20   @Base/boot.jl:414; Array
+ 20╎    ╎    ╎    ╎    ╎  20   @Base/boot.jl:405; Array
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/multidimensional.jl:0; copyto!(::Array{Real,1}, ::Array{Int64,1})
+  2╎    ╎    ╎    ╎    ╎ 2    @Base/multidimensional.jl:959; copyto!(::Array{Real,1}, ::Array{Int64,1})
+   ╎    ╎    ╎    ╎    ╎ 4    @Base/multidimensional.jl:962; copyto!(::Array{Real,1}, ::Array{Int64,1})
+  4╎    ╎    ╎    ╎    ╎  4    @Base/array.jl:825; setindex!
+   ╎    ╎    ╎    ╎    27   @Base/range.jl:942; vcat
+ 27╎    ╎    ╎    ╎     27   @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎   25   @RTM/src/sail.jl:30; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    5    @Base/array.jl:1597; vcat(::Array{Int64,1}, ::Array{Int64,1})
+  5╎    ╎    ╎    ╎     5    @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎    1    @Base/array.jl:1602; vcat(::Array{Int64,1}, ::Array{Int64,1})
+   ╎    ╎    ╎    ╎     1    @Base/array.jl:271; unsafe_copyto!
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/essentials.jl:390; cconvert
+   ╎    ╎    ╎    ╎    ╎  1    @Base/number.jl:7; convert
+   ╎    ╎    ╎    ╎    ╎   1    @Base/boot.jl:712; UInt64
+   ╎    ╎    ╎    ╎    ╎    1    @Base/boot.jl:682; toUInt64
+   ╎    ╎    ╎    ╎    ╎     1    @Base/boot.jl:571; check_top_bit
+  1╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/boot.jl:561; is_top_bit_set
+   ╎    ╎    ╎    ╎    18   @Base/range.jl:942; vcat
+ 18╎    ╎    ╎    ╎     18   @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎    1    @Base/range.jl:945; vcat
+  1╎    ╎    ╎    ╎     1    @Base/array.jl:825; setindex!
+   ╎    ╎    ╎    ╎   1366 @RTM/src/sail.jl:31; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    412  @Base/abstractarray.jl:1502; vcat
+   ╎    ╎    ╎    ╎     412  @Base/abstractarray.jl:1564; cat##kw
+   ╎    ╎    ╎    ╎    ╎ 412  @Base/abstractarray.jl:1564; #cat#110
+   ╎    ╎    ╎    ╎    ╎  412  @Base/abstractarray.jl:1435; _cat
+   ╎    ╎    ╎    ╎    ╎   412  @Base/abstractarray.jl:1437; cat_t##kw
+   ╎    ╎    ╎    ╎    ╎    412  @Base/abstractarray.jl:1437; #cat_t#109
+   ╎    ╎    ╎    ╎    ╎     34   @Base/abstractarray.jl:1441; _cat_t
+   ╎    ╎    ╎    ╎    ╎    ╎ 34   @Base/abstractarray.jl:1392; cat_similar
+   ╎    ╎    ╎    ╎    ╎    ╎  34   @Base/array.jl:361; similar
+   ╎    ╎    ╎    ╎    ╎    ╎   34   @Base/boot.jl:414; Array
+ 34╎    ╎    ╎    ╎    ╎    ╎    34   @Base/boot.jl:405; Array
+  7╎    ╎    ╎    ╎    ╎     378  @Base/abstractarray.jl:1445; _cat_t
+  9╎    ╎    ╎    ╎    ╎    ╎ 16   @Base/abstractarray.jl:1449; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+   ╎    ╎    ╎    ╎    ╎    ╎  7    @Base/array.jl:500; zeros
+   ╎    ╎    ╎    ╎    ╎    ╎   7    @Base/array.jl:504; zeros
+   ╎    ╎    ╎    ╎    ╎    ╎    7    @Base/boot.jl:414; Array
+  7╎    ╎    ╎    ╎    ╎    ╎     7    @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎    ╎    ╎ 13   @Base/abstractarray.jl:1450; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+ 13╎    ╎    ╎    ╎    ╎    ╎  13   @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎    ╎    ╎ 7    @Base/abstractarray.jl:1451; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+   ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/abstractarray.jl:725; copyto!
+  1╎    ╎    ╎    ╎    ╎    ╎   1    @Base/tuple.jl:61; iterate
+   ╎    ╎    ╎    ╎    ╎    ╎  6    @Base/array.jl:500; zeros
+   ╎    ╎    ╎    ╎    ╎    ╎   5    @Base/array.jl:504; zeros
+   ╎    ╎    ╎    ╎    ╎    ╎    5    @Base/boot.jl:414; Array
+  5╎    ╎    ╎    ╎    ╎    ╎     5    @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎    ╎    ╎   1    @Base/array.jl:505; zeros
+   ╎    ╎    ╎    ╎    ╎    ╎    1    @Base/array.jl:338; fill!(::Array{Bool,1}, ::Bool)
+  1╎    ╎    ╎    ╎    ╎    ╎     1    @Base/array.jl:825; setindex!
+146╎    ╎    ╎    ╎    ╎    ╎ 157  @Base/abstractarray.jl:1455; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+ 11╎    ╎    ╎    ╎    ╎    ╎  11   @Base/broadcast.jl:1238; broadcasted(::Function, ::Int64, ::Base.OneTo{Int64})
+ 33╎    ╎    ╎    ╎    ╎    ╎ 33   @Base/abstractarray.jl:1456; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+104╎    ╎    ╎    ╎    ╎    ╎ 104  @Base/abstractarray.jl:1461; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+ 24╎    ╎    ╎    ╎    ╎    ╎ 24   @Base/abstractarray.jl:1462; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+ 10╎    ╎    ╎    ╎    ╎    ╎ 10   @Base/abstractarray.jl:1463; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+  3╎    ╎    ╎    ╎    ╎    ╎ 7    @Base/abstractarray.jl:1465; __cat(::Array{Float64,1}, ::Tuple{Int64}, ::Tuple{Bool}, ::Array{Float64,1}, ::Vararg{Any,N} where N)
+  1╎    ╎    ╎    ╎    ╎    ╎  1    @Base/multidimensional.jl:922; fill!(::SubArray{Float64,1,Array{Float64,1},Tuple{UnitRange{Int64}},true}, ::Int64)
+   ╎    ╎    ╎    ╎    ╎    ╎  2    @Base/subarray.jl:164; view
+   ╎    ╎    ╎    ╎    ╎    ╎   2    @Base/subarray.jl:169; unsafe_view
+   ╎    ╎    ╎    ╎    ╎    ╎    2    @Base/subarray.jl:28; SubArray
+   ╎    ╎    ╎    ╎    ╎    ╎     2    @Base/subarray.jl:38; SubArray
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/subarray.jl:22; SubArray
+   ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/tuple.jl:61; iterate
+  1╎    ╎    ╎    ╎    ╎    ╎   1    @Base/int.jl:410; <=
+   ╎    ╎    ╎    ╎    954  @Base/broadcast.jl:820; materialize
+   ╎    ╎    ╎    ╎     954  @Base/broadcast.jl:840; copy
+   ╎    ╎    ╎    ╎    ╎ 894  @Base/broadcast.jl:864; copyto!
+   ╎    ╎    ╎    ╎    ╎  1    @Base/broadcast.jl:900; copyto!
+   ╎    ╎    ╎    ╎    ╎   1    @Base/abstractarray.jl:75; axes
+   ╎    ╎    ╎    ╎    ╎    1    @Base/tuple.jl:157; map
+   ╎    ╎    ╎    ╎    ╎     1    @Base/range.jl:320; OneTo
+   ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/range.jl:311; OneTo
+  1╎    ╎    ╎    ╎    ╎    ╎  1    @Base/promotion.jl:409; max
+   ╎    ╎    ╎    ╎    ╎  893  @Base/broadcast.jl:909; copyto!
+  1╎    ╎    ╎    ╎    ╎   1    @Base/simdloop.jl:0; macro expansion
+   ╎    ╎    ╎    ╎    ╎   891  @Base/simdloop.jl:77; macro expansion
+   ╎    ╎    ╎    ╎    ╎    891  @Base/broadcast.jl:910; macro expansion
+  1╎    ╎    ╎    ╎    ╎     1    @Base/array.jl:825; setindex!
+   ╎    ╎    ╎    ╎    ╎     890  @Base/broadcast.jl:564; getindex
+   ╎    ╎    ╎    ╎    ╎    ╎ 890  @Base/broadcast.jl:604; _broadcast_getindex
+   ╎    ╎    ╎    ╎    ╎    ╎  890  @Base/broadcast.jl:631; _broadcast_getindex_evalf
+  1╎    ╎    ╎    ╎    ╎    ╎   1    @RTM/src/lidf.jl:5; dcum(::Float64, ::Float64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎    ╎   4    @RTM/src/lidf.jl:6; dcum(::Float64, ::Float64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎    ╎    4    @Base/promotion.jl:312; *
+  1╎    ╎    ╎    ╎    ╎    ╎     1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     3    @Base/promotion.jl:282; promote
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 3    @Base/promotion.jl:259; _promote
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎  3    @Base/number.jl:7; convert
+  3╎    ╎    ╎    ╎    ╎    ╎    ╎   3    @Base/float.jl:60; Float64
+   ╎    ╎    ╎    ╎    ╎    ╎   3    @RTM/src/lidf.jl:7; dcum(::Float64, ::Float64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎    ╎    3    @Base/promotion.jl:312; *
+  3╎    ╎    ╎    ╎    ╎    ╎     3    @Base/float.jl:405; *
+ 28╎    ╎    ╎    ╎    ╎    ╎   28   @RTM/src/lidf.jl:12; dcum(::Float64, ::Float64, ::Int64)
+ 22╎    ╎    ╎    ╎    ╎    ╎   678  @RTM/src/lidf.jl:13; dcum(::Float64, ::Float64, ::Int64)
+ 51╎    ╎    ╎    ╎    ╎    ╎    51   @Base/float.jl:405; *
+ 15╎    ╎    ╎    ╎    ╎    ╎    15   @Base/float.jl:401; +
+ 37╎    ╎    ╎    ╎    ╎    ╎    37   @Base/special/trig.jl:0; sin(::Float64)
+ 17╎    ╎    ╎    ╎    ╎    ╎    38   @Base/special/trig.jl:30; sin(::Float64)
+ 21╎    ╎    ╎    ╎    ╎    ╎     21   @Base/float.jl:528; abs
+  7╎    ╎    ╎    ╎    ╎    ╎    7    @Base/special/trig.jl:31; sin(::Float64)
+  1╎    ╎    ╎    ╎    ╎    ╎    1    @Base/special/trig.jl:32; sin(::Float64)
+  6╎    ╎    ╎    ╎    ╎    ╎    49   @Base/special/trig.jl:35; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     5    @Base/special/trig.jl:79; sin_kernel
+  5╎    ╎    ╎    ╎    ╎    ╎    ╎ 5    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     15   @Base/special/trig.jl:80; sin_kernel
+  4╎    ╎    ╎    ╎    ╎    ╎    ╎ 4    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 8    @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎  8    @Base/math.jl:107; macro expansion
+  8╎    ╎    ╎    ╎    ╎    ╎    ╎   8    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 3    @Base/operators.jl:529; *
+  3╎    ╎    ╎    ╎    ╎    ╎    ╎  3    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     5    @Base/special/trig.jl:81; sin_kernel
+  5╎    ╎    ╎    ╎    ╎    ╎    ╎ 5    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     18   @Base/special/trig.jl:82; sin_kernel
+ 12╎    ╎    ╎    ╎    ╎    ╎    ╎ 12   @Base/float.jl:405; *
+  6╎    ╎    ╎    ╎    ╎    ╎    ╎ 6    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎    9    @Base/special/trig.jl:36; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     9    @Base/float.jl:536; isnan
+  9╎    ╎    ╎    ╎    ╎    ╎    ╎ 9    @Base/float.jl:456; !=
+ 12╎    ╎    ╎    ╎    ╎    ╎    24   @Base/special/trig.jl:38; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     12   @Base/float.jl:564; isinf
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 12   @Base/float.jl:554; isfinite
+ 12╎    ╎    ╎    ╎    ╎    ╎    ╎  12   @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎    ╎    ╎    93   @Base/special/trig.jl:41; sin(::Float64)
+  3╎    ╎    ╎    ╎    ╎    ╎     3    @Base/float.jl:0; rem_pio2_kernel
+ 18╎    ╎    ╎    ╎    ╎    ╎     18   @Base/special/rem_pio2.jl:0; rem_pio2_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎     19   @Base/special/rem_pio2.jl:219; rem_pio2_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 19   @Base/math.jl:1148; poshighword
+ 11╎    ╎    ╎    ╎    ╎    ╎    ╎  11   @Base/essentials.jl:416; reinterpret
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎  8    @Base/math.jl:1149; poshighword
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎   1    @Base/int.jl:277; &
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎   7    @Base/math.jl:1136; highword
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎    7    @Base/int.jl:434; >>>
+  7╎    ╎    ╎    ╎    ╎    ╎    ╎     7    @Base/int.jl:426; >>>
+   ╎    ╎    ╎    ╎    ╎    ╎     6    @Base/special/rem_pio2.jl:221; rem_pio2_kernel
+  6╎    ╎    ╎    ╎    ╎    ╎    ╎ 6    @Base/int.jl:411; <=
+   ╎    ╎    ╎    ╎    ╎    ╎     5    @Base/special/rem_pio2.jl:224; rem_pio2_kernel
+  5╎    ╎    ╎    ╎    ╎    ╎    ╎ 5    @Base/int.jl:277; &
+ 13╎    ╎    ╎    ╎    ╎    ╎     18   @Base/special/rem_pio2.jl:231; rem_pio2_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/special/rem_pio2.jl:52; cody_waite_2c_pio2
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 3    @Base/special/rem_pio2.jl:53; cody_waite_2c_pio2
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:403; -
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎     11   @Base/special/rem_pio2.jl:238; rem_pio2_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/special/rem_pio2.jl:51; cody_waite_2c_pio2
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 6    @Base/special/rem_pio2.jl:52; cody_waite_2c_pio2
+  6╎    ╎    ╎    ╎    ╎    ╎    ╎  6    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 3    @Base/special/rem_pio2.jl:53; cody_waite_2c_pio2
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:403; -
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎     8    @Base/special/rem_pio2.jl:245; rem_pio2_kernel
+  8╎    ╎    ╎    ╎    ╎    ╎    ╎ 8    @Base/int.jl:411; <=
+   ╎    ╎    ╎    ╎    ╎    ╎     2    @Base/special/rem_pio2.jl:249; rem_pio2_kernel
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/promotion.jl:398; ==
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/rem_pio2.jl:254; rem_pio2_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/special/rem_pio2.jl:52; cody_waite_2c_pio2
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎     2    @Base/special/rem_pio2.jl:266; rem_pio2_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/special/rem_pio2.jl:52; cody_waite_2c_pio2
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:410; muladd
+  2╎    ╎    ╎    ╎    ╎    ╎    25   @Base/special/trig.jl:44; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     3    @Base/special/trig.jl:71; sin_kernel
+  3╎    ╎    ╎    ╎    ╎    ╎    ╎ 3    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     4    @Base/special/trig.jl:72; sin_kernel
+  4╎    ╎    ╎    ╎    ╎    ╎    ╎ 4    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     5    @Base/special/trig.jl:73; sin_kernel
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 3    @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎  3    @Base/math.jl:107; macro expansion
+  3╎    ╎    ╎    ╎    ╎    ╎    ╎   3    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/operators.jl:529; *
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     5    @Base/special/trig.jl:74; sin_kernel
+  5╎    ╎    ╎    ╎    ╎    ╎    ╎ 5    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     6    @Base/special/trig.jl:75; sin_kernel
+  5╎    ╎    ╎    ╎    ╎    ╎    ╎ 5    @Base/float.jl:405; *
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:403; -
+ 27╎    ╎    ╎    ╎    ╎    ╎    131  @Base/special/trig.jl:46; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/trig.jl:138; cos_kernel
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     5    @Base/special/trig.jl:139; cos_kernel
+  5╎    ╎    ╎    ╎    ╎    ╎    ╎ 5    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     55   @Base/special/trig.jl:140; cos_kernel
+ 36╎    ╎    ╎    ╎    ╎    ╎    ╎ 36   @Base/float.jl:405; *
+ 12╎    ╎    ╎    ╎    ╎    ╎    ╎ 12   @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 7    @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎  7    @Base/math.jl:107; macro expansion
+  7╎    ╎    ╎    ╎    ╎    ╎    ╎   7    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎     1    @Base/special/trig.jl:141; cos_kernel
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     4    @Base/special/trig.jl:142; cos_kernel
+  4╎    ╎    ╎    ╎    ╎    ╎    ╎ 4    @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎    ╎    ╎     38   @Base/special/trig.jl:143; cos_kernel
+ 19╎    ╎    ╎    ╎    ╎    ╎    ╎ 19   @Base/float.jl:405; *
+ 17╎    ╎    ╎    ╎    ╎    ╎    ╎ 17   @Base/float.jl:401; +
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/float.jl:403; -
+  8╎    ╎    ╎    ╎    ╎    ╎    165  @Base/special/trig.jl:48; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     34   @Base/special/trig.jl:73; sin_kernel
+  7╎    ╎    ╎    ╎    ╎    ╎    ╎ 7    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 19   @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎  19   @Base/math.jl:107; macro expansion
+ 19╎    ╎    ╎    ╎    ╎    ╎    ╎   19   @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 8    @Base/operators.jl:529; *
+  8╎    ╎    ╎    ╎    ╎    ╎    ╎  8    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     14   @Base/special/trig.jl:74; sin_kernel
+ 14╎    ╎    ╎    ╎    ╎    ╎    ╎ 14   @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     109  @Base/special/trig.jl:75; sin_kernel
+ 53╎    ╎    ╎    ╎    ╎    ╎    ╎ 53   @Base/float.jl:405; *
+ 56╎    ╎    ╎    ╎    ╎    ╎    ╎ 56   @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎    ╎    ╎    11   @Base/special/trig.jl:50; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎    ╎     3    @Base/special/trig.jl:140; cos_kernel
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/operators.jl:529; *
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎     8    @Base/special/trig.jl:143; cos_kernel
+  5╎    ╎    ╎    ╎    ╎    ╎    ╎ 5    @Base/float.jl:405; *
+  2╎    ╎    ╎    ╎    ╎    ╎    ╎ 2    @Base/float.jl:401; +
+  1╎    ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎    ╎    ╎   81   @RTM/src/lidf.jl:14; dcum(::Float64, ::Float64, ::Int64)
+ 35╎    ╎    ╎    ╎    ╎    ╎    35   @Base/float.jl:405; *
+ 25╎    ╎    ╎    ╎    ╎    ╎    25   @Base/float.jl:401; +
+ 21╎    ╎    ╎    ╎    ╎    ╎    21   @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎    ╎    ╎   37   @RTM/src/lidf.jl:15; dcum(::Float64, ::Float64, ::Int64)
+ 37╎    ╎    ╎    ╎    ╎    ╎    37   @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎   41   @RTM/src/lidf.jl:16; dcum(::Float64, ::Float64, ::Int64)
+ 41╎    ╎    ╎    ╎    ╎    ╎    41   @Base/float.jl:528; abs
+  2╎    ╎    ╎    ╎    ╎    ╎   17   @RTM/src/lidf.jl:18; dcum(::Float64, ::Float64, ::Int64)
+  5╎    ╎    ╎    ╎    ╎    ╎    5    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    ╎    ╎    2    @Base/promotion.jl:312; *
+  2╎    ╎    ╎    ╎    ╎    ╎     2    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎    ╎    8    @Base/promotion.jl:314; /
+  8╎    ╎    ╎    ╎    ╎    ╎     8    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    ╎   1    @Base/simdloop.jl:78; macro expansion
+  1╎    ╎    ╎    ╎    ╎    1    @Base/int.jl:53; +
+   ╎    ╎    ╎    ╎    ╎ 60   @Base/broadcast.jl:196; similar
+   ╎    ╎    ╎    ╎    ╎  60   @Base/abstractarray.jl:670; similar
+   ╎    ╎    ╎    ╎    ╎   60   @Base/abstractarray.jl:671; similar
+   ╎    ╎    ╎    ╎    ╎    60   @Base/boot.jl:422; Array
+   ╎    ╎    ╎    ╎    ╎     60   @Base/boot.jl:414; Array
+ 60╎    ╎    ╎    ╎    ╎    ╎ 60   @Base/boot.jl:405; Array
+   ╎    ╎    ╎    ╎   2    @RTM/src/sail.jl:34; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  1╎    ╎    ╎    ╎    1    @Base/array.jl:787; getindex
+  1╎    ╎    ╎    ╎    1    @Base/float.jl:403; -
+ 20╎    ╎    ╎    ╎   2809 @RTM/src/sail.jl:38; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+ 41╎    ╎    ╎    ╎    43   @Base/tuple.jl:81; indexed_iterate
+  2╎    ╎    ╎    ╎     2    @Base/tuple.jl:81; indexed_iterate
+  1╎    ╎    ╎    ╎    1    @RTM/src/suits.jl:0; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+ 95╎    ╎    ╎    ╎    110  @RTM/src/suits.jl:16; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+   ╎    ╎    ╎    ╎     1    @Base/promotion.jl:312; *(::Float64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎     1    @Base/special/trig.jl:101; cos(::Float64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:458; <
+   ╎    ╎    ╎    ╎     4    @Base/special/trig.jl:105; cos(::Float64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:148; cos_kernel
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎ 3    @Base/special/trig.jl:151; cos_kernel
+  2╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:405; *
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎     1    @Base/special/trig.jl:108; cos(::Float64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:564; isinf
+   ╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:554; isfinite
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎     1    @Base/special/trig.jl:111; cos(::Float64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:0; rem_pio2_kernel
+   ╎    ╎    ╎    ╎     7    @Base/special/trig.jl:116; cos(::Float64)
+   ╎    ╎    ╎    ╎    ╎ 2    @Base/special/trig.jl:73; sin_kernel
+   ╎    ╎    ╎    ╎    ╎  1    @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎   1    @Base/math.jl:107; macro expansion
+  1╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎  1    @Base/operators.jl:529; *
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎ 5    @Base/special/trig.jl:75; sin_kernel
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:405; *
+  4╎    ╎    ╎    ╎    ╎  4    @Base/float.jl:403; -
+ 37╎    ╎    ╎    ╎    1410 @RTM/src/suits.jl:17; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+114╎    ╎    ╎    ╎     160  @Base/tuple.jl:81; indexed_iterate
+ 46╎    ╎    ╎    ╎    ╎ 46   @Base/tuple.jl:81; indexed_iterate
+  9╎    ╎    ╎    ╎     9    @RTM/src/volscatt.jl:0; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+ 12╎    ╎    ╎    ╎     12   @RTM/src/volscatt.jl:2; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎     9    @RTM/src/volscatt.jl:5; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 4    @Base/promotion.jl:312; *
+   ╎    ╎    ╎    ╎    ╎  4    @Base/promotion.jl:282; promote
+   ╎    ╎    ╎    ╎    ╎   4    @Base/promotion.jl:259; _promote
+   ╎    ╎    ╎    ╎    ╎    4    @Base/number.jl:7; convert
+  4╎    ╎    ╎    ╎    ╎     4    @Base/float.jl:60; Float64
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:0; cos(::Float64)
+  2╎    ╎    ╎    ╎    ╎ 2    @Base/special/trig.jl:100; cos(::Float64)
+  2╎    ╎    ╎    ╎    ╎ 2    @Base/special/trig.jl:101; cos(::Float64)
+  1╎    ╎    ╎    ╎     3    @RTM/src/volscatt.jl:6; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 2    @Base/special/trig.jl:30; sin(::Float64)
+  2╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:528; abs
+   ╎    ╎    ╎    ╎     1    @RTM/src/volscatt.jl:7; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:101; cos(::Float64)
+   ╎    ╎    ╎    ╎     2    @RTM/src/volscatt.jl:8; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 2    @Base/special/trig.jl:32; sin(::Float64)
+  2╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:458; <
+   ╎    ╎    ╎    ╎     4    @RTM/src/volscatt.jl:9; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:0; cos(::Float64)
+  2╎    ╎    ╎    ╎    ╎ 3    @Base/special/trig.jl:100; cos(::Float64)
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:528; abs
+   ╎    ╎    ╎    ╎     23   @RTM/src/volscatt.jl:13; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:100; cos(::Float64)
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:528; abs
+   ╎    ╎    ╎    ╎    ╎ 3    @Base/special/trig.jl:105; cos(::Float64)
+   ╎    ╎    ╎    ╎    ╎  2    @Base/special/trig.jl:147; cos_kernel
+  2╎    ╎    ╎    ╎    ╎   2    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/trig.jl:148; cos_kernel
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:106; cos(::Float64)
+   ╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:536; isnan
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:456; !=
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:111; cos(::Float64)
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/rem_pio2.jl:219; rem_pio2_kernel
+   ╎    ╎    ╎    ╎    ╎   1    @Base/math.jl:1148; poshighword
+   ╎    ╎    ╎    ╎    ╎    1    @Base/math.jl:1149; poshighword
+   ╎    ╎    ╎    ╎    ╎     1    @Base/math.jl:1136; highword
+   ╎    ╎    ╎    ╎    ╎    ╎ 1    @Base/int.jl:434; >>>
+  1╎    ╎    ╎    ╎    ╎    ╎  1    @Base/int.jl:426; >>>
+   ╎    ╎    ╎    ╎    ╎ 17   @Base/special/trig.jl:116; cos(::Float64)
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/trig.jl:71; sin_kernel
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/trig.jl:73; sin_kernel
+   ╎    ╎    ╎    ╎    ╎   1    @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎    1    @Base/math.jl:107; macro expansion
+  1╎    ╎    ╎    ╎    ╎     1    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    ╎  3    @Base/special/trig.jl:74; sin_kernel
+  3╎    ╎    ╎    ╎    ╎   3    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎  12   @Base/special/trig.jl:75; sin_kernel
+  5╎    ╎    ╎    ╎    ╎   5    @Base/float.jl:405; *
+  7╎    ╎    ╎    ╎    ╎   7    @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎     7    @RTM/src/volscatt.jl:14; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:35; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/trig.jl:82; sin_kernel
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/trig.jl:44; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/trig.jl:75; sin_kernel
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:403; -
+  3╎    ╎    ╎    ╎    ╎ 5    @Base/special/trig.jl:46; sin(::Float64)
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/trig.jl:138; cos_kernel
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    ╎  1    @Base/special/trig.jl:143; cos_kernel
+  1╎    ╎    ╎    ╎    ╎   1    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎     2    @RTM/src/volscatt.jl:19; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  2╎    ╎    ╎    ╎    ╎ 2    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎     1    @RTM/src/volscatt.jl:23; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:528; abs
+  1╎    ╎    ╎    ╎     2    @RTM/src/volscatt.jl:42; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/int.jl:136; abs
+  1╎    ╎    ╎    ╎    ╎  1    @Base/int.jl:96; flipsign
+   ╎    ╎    ╎    ╎     5    @RTM/src/volscatt.jl:53; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  5╎    ╎    ╎    ╎    ╎ 5    @Base/float.jl:405; *
+ 46╎    ╎    ╎    ╎     46   @RTM/src/volscatt.jl:56; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+122╎    ╎    ╎    ╎     123  @RTM/src/volscatt.jl:57; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/promotion.jl:313; -(::Float64, ::Irrational{:π})
+ 41╎    ╎    ╎    ╎     42   @RTM/src/volscatt.jl:59; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:460; <=(::Float64, ::Float64)
+ 33╎    ╎    ╎    ╎     39   @RTM/src/volscatt.jl:76; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 6    @Base/operators.jl:294; >(::Float64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎  6    @Base/float.jl:494; <
+  2╎    ╎    ╎    ╎    ╎   2    @Base/bool.jl:41; |
+  4╎    ╎    ╎    ╎    ╎   4    @Base/float.jl:454; ==
+223╎    ╎    ╎    ╎     225  @RTM/src/volscatt.jl:81; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  2╎    ╎    ╎    ╎    ╎ 2    @Base/float.jl:405; *(::Float64, ::Float64)
+189╎    ╎    ╎    ╎     192  @RTM/src/volscatt.jl:82; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+  2╎    ╎    ╎    ╎    ╎ 2    @Base/float.jl:407; /(::Float64, ::Float64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/promotion.jl:311; +(::Float64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:401; +
+ 37╎    ╎    ╎    ╎     41   @RTM/src/volscatt.jl:83; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:502; <(::Float64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:502; Float64
+   ╎    ╎    ╎    ╎    ╎ 3    @Base/float.jl:503; <(::Float64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:458; <
+  2╎    ╎    ╎    ╎    ╎  2    @Base/int.jl:49; <
+ 17╎    ╎    ╎    ╎     22   @RTM/src/volscatt.jl:86; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:502; <(::Float64, ::Int64)
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:502; Float64
+   ╎    ╎    ╎    ╎    ╎ 4    @Base/float.jl:503; <(::Float64, ::Int64)
+  3╎    ╎    ╎    ╎    ╎  3    @Base/float.jl:458; <
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:454; ==
+403╎    ╎    ╎    ╎     403  @RTM/src/volscatt.jl:90; volscatt(::Int64, ::Int64, ::Int64, ::Int64)
+139╎    ╎    ╎    ╎    140  @RTM/src/suits.jl:34; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:407; /(::Float64, ::Float64)
+ 95╎    ╎    ╎    ╎    97   @RTM/src/suits.jl:35; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  2╎    ╎    ╎    ╎     2    @Base/float.jl:407; /(::Float64, ::Float64)
+141╎    ╎    ╎    ╎    141  @RTM/src/suits.jl:37; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+130╎    ╎    ╎    ╎    130  @RTM/src/suits.jl:38; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+ 59╎    ╎    ╎    ╎    59   @RTM/src/suits.jl:39; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+ 92╎    ╎    ╎    ╎    96   @RTM/src/suits.jl:40; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  2╎    ╎    ╎    ╎     2    @Base/array.jl:787; getindex
+  2╎    ╎    ╎    ╎     2    @Base/float.jl:401; +(::Float64, ::Float64)
+ 96╎    ╎    ╎    ╎    99   @RTM/src/suits.jl:41; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  2╎    ╎    ╎    ╎     2    @Base/array.jl:787; getindex
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:405; *(::Float64, ::Float64)
+ 94╎    ╎    ╎    ╎    96   @RTM/src/suits.jl:42; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/array.jl:787; getindex
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:401; +(::Float64, ::Float64)
+179╎    ╎    ╎    ╎    181  @RTM/src/suits.jl:43; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  2╎    ╎    ╎    ╎     2    @Base/array.jl:787; getindex
+ 79╎    ╎    ╎    ╎    83   @RTM/src/suits.jl:44; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/array.jl:787; getindex
+  2╎    ╎    ╎    ╎     2    @Base/float.jl:405; *(::Float64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:401; +(::Float64, ::Float64)
+ 13╎    ╎    ╎    ╎    13   @RTM/src/suits.jl:47; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  9╎    ╎    ╎    ╎    9    @RTM/src/suits.jl:48; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  8╎    ╎    ╎    ╎    8    @RTM/src/suits.jl:49; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+ 15╎    ╎    ╎    ╎    15   @RTM/src/suits.jl:50; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+  5╎    ╎    ╎    ╎    5    @RTM/src/suits.jl:51; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+ 11╎    ╎    ╎    ╎    11   @RTM/src/suits.jl:52; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+ 42╎    ╎    ╎    ╎    42   @RTM/src/suits.jl:54; suits(::Array{Real,1}, ::Array{Float64,1}, ::Int64, ::Int64, ::Float64, ::Float64, ::Int64, ::Float64)
+ 12╎    ╎    ╎    ╎   46   @RTM/src/sail.jl:43; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+ 21╎    ╎    ╎    ╎    30   @Base/tuple.jl:81; indexed_iterate
+  9╎    ╎    ╎    ╎     9    @Base/tuple.jl:81; indexed_iterate
+   ╎    ╎    ╎    ╎    2    @RTM/src/rtgeom.jl:6; rtgeom(::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+  2╎    ╎    ╎    ╎     2    @Base/float.jl:403; -
+   ╎    ╎    ╎    ╎    1    @RTM/src/rtgeom.jl:7; rtgeom(::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:401; +
+   ╎    ╎    ╎    ╎    1    @RTM/src/rtgeom.jl:16; rtgeom(::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:405; *
+ 11╎    ╎    ╎    ╎   70   @RTM/src/sail.jl:49; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+ 37╎    ╎    ╎    ╎    38   @Base/tuple.jl:81; indexed_iterate
+  1╎    ╎    ╎    ╎     1    @Base/tuple.jl:81; indexed_iterate
+   ╎    ╎    ╎    ╎    9    @RTM/src/refltrans.jl:4; refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎     1    @Base/promotion.jl:312; *
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+  1╎    ╎    ╎    ╎     1    @Base/special/exp.jl:91; exp(::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/special/exp.jl:98; exp(::Float64)
+   ╎    ╎    ╎    ╎     1    @Base/special/exp.jl:108; exp(::Float64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/floatfuncs.jl:129; round
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:376; round
+   ╎    ╎    ╎    ╎     2    @Base/special/exp.jl:115; exp(::Float64)
+  2╎    ╎    ╎    ╎    ╎ 2    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎     1    @Base/special/exp.jl:116; exp(::Float64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/exp.jl:52; exp_kernel
+   ╎    ╎    ╎    ╎    ╎  1    @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎   1    @Base/math.jl:107; macro expansion
+  1╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎     1    @Base/special/exp.jl:117; exp(::Float64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:403; -
+  1╎    ╎    ╎    ╎     1    @Base/special/exp.jl:123; exp(::Float64)
+   ╎    ╎    ╎    ╎    1    @RTM/src/refltrans.jl:11; refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @RTM/src/refltrans.jl:48; Jfunc1(::Float64, ::Float64, ::Int64)
+   ╎    ╎    ╎    ╎    6    @RTM/src/refltrans.jl:13; refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+  2╎    ╎    ╎    ╎     6    @RTM/src/refltrans.jl:48; Jfunc1(::Float64, ::Float64, ::Int64)
+   ╎    ╎    ╎    ╎    ╎ 3    @Base/special/exp.jl:117; exp(::Float64)
+  2╎    ╎    ╎    ╎    ╎  2    @Base/float.jl:403; -
+  1╎    ╎    ╎    ╎    ╎  1    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/exp.jl:122; exp(::Float64)
+   ╎    ╎    ╎    ╎    ╎  1    @Base/int.jl:432; <<
+  1╎    ╎    ╎    ╎    ╎   1    @Base/int.jl:425; <<
+   ╎    ╎    ╎    ╎    1    @RTM/src/refltrans.jl:25; refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:407; /
+   ╎    ╎    ╎    ╎    1    @RTM/src/refltrans.jl:28; refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎     1    @Base/special/exp.jl:123; exp(::Float64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎    2    @RTM/src/refltrans.jl:29; refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎     1    @Base/special/exp.jl:111; exp(::Float64)
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:405; *
+   ╎    ╎    ╎    ╎     1    @Base/special/exp.jl:116; exp(::Float64)
+   ╎    ╎    ╎    ╎    ╎ 1    @Base/special/exp.jl:52; exp_kernel
+   ╎    ╎    ╎    ╎    ╎  1    @Base/math.jl:107; evalpoly
+   ╎    ╎    ╎    ╎    ╎   1    @Base/math.jl:107; macro expansion
+  1╎    ╎    ╎    ╎    ╎    1    @Base/float.jl:410; muladd
+   ╎    ╎    ╎    ╎    1    @RTM/src/refltrans.jl:30; refltrans(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎     1    @RTM/src/refltrans.jl:55; Jfunc2
+  1╎    ╎    ╎    ╎    ╎ 1    @Base/float.jl:407; /
+ 13╎    ╎    ╎    ╎   21   @RTM/src/sail.jl:55; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  5╎    ╎    ╎    ╎    7    @Base/tuple.jl:81; indexed_iterate
+  2╎    ╎    ╎    ╎     2    @Base/tuple.jl:81; indexed_iterate
+  1╎    ╎    ╎    ╎    1    @RTM/src/hotspot.jl:6; hotspot(::Int64, ::Float64, ::Float64, ::Float64, ::Float64, ::Float64)
+   ╎    ╎    ╎    ╎   13   @RTM/src/sail.jl:58; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+ 13╎    ╎    ╎    ╎    13   @Base/operators.jl:529; *
+  2╎    ╎    ╎    ╎   2    @RTM/src/sail.jl:59; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+ 31╎    ╎    ╎    ╎   31   @RTM/src/sail.jl:60; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  7╎    ╎    ╎    ╎   15   @RTM/src/sail.jl:63; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  8╎    ╎    ╎    ╎    8    @Base/operators.jl:529; *
+ 15╎    ╎    ╎    ╎   22   @RTM/src/sail.jl:66; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  6╎    ╎    ╎    ╎    7    @Base/operators.jl:529; *
+  1╎    ╎    ╎    ╎     1    @Base/float.jl:405; *(::Float64, ::Float64)
+ 18╎    ╎    ╎    ╎   28   @RTM/src/sail.jl:69; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+ 10╎    ╎    ╎    ╎    10   @Base/operators.jl:529; *
+ 23╎    ╎    ╎    ╎   38   @RTM/src/sail.jl:72; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+ 15╎    ╎    ╎    ╎    15   @Base/operators.jl:529; *
+  9╎    ╎    ╎    ╎   9    @RTM/src/sail.jl:73; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  4╎    ╎    ╎    ╎   5    @RTM/src/sail.jl:74; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+  1╎    ╎    ╎    ╎    1    @Base/float.jl:401; +(::Float64, ::Float64)
+ 11╎    ╎    ╎    ╎   21   @RTM/src/sail.jl:76; foursail(::Float64, ::Float64, ::Float64, ::Int64, ::Float64, ::Int64, ::Int64, ::Int64)
+   ╎    ╎    ╎    ╎    10   @Base/abstractarray.jl:1279; hcat(::Float64, ::Float64, ::Float64, ::Vararg{Float64,N} where N)
+   ╎    ╎    ╎    ╎     10   @Base/array.jl:657; _array_for
+   ╎    ╎    ╎    ╎    ╎ 10   @Base/abstractarray.jl:670; similar
+   ╎    ╎    ╎    ╎    ╎  10   @Base/abstractarray.jl:671; similar
+   ╎    ╎    ╎    ╎    ╎   10   @Base/boot.jl:415; Array
+ 10╎    ╎    ╎    ╎    ╎    10   @Base/boot.jl:407; Array
+  1╎1    @RTM/src/lidf.jl:5; dcum(::Float64, ::Float64, ::Int64)
+   ╎1    @RTM/src/tav_abs.jl:2; tav_abs(::Int64, ::Float64)
+  1╎ 1    @RTM/src/tav_abs.jl:2; ==
+Total snapshots: 4807
