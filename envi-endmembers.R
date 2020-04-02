@@ -82,7 +82,20 @@ envi_endmember <- function(m) {
   outdir <- file.path("data", "outputs", "envi-endmembers")
   dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
   outfile <- file.path(outdir, paste0(endmember, ".envi"))
-  raster::writeRaster(mr, outfile, overwrite = TRUE)
+  raster::writeRaster(mr, outfile, format = "ENVI", overwrite = TRUE)
+
+  bilfile <- file.path(outdir, endmember)
+
+  # Convert to BIL interleave
+  system2(
+    "gdal_translate",
+    c(outfile, bilfile,
+      "-of ENVI", "-co INTERLEAVE=BIL")
+  )
+
+  # Remove original file and auxiliary XML
+  file.remove(outfile)
+  file.remove(paste0(outfile, ".aux.xml"))
 
   # Add other metadata to header
   outfile_hdr <- file.path(outdir, paste0(endmember, ".hdr"))
@@ -97,6 +110,8 @@ envi_endmember <- function(m) {
   outfile
 }
 
-dat_wide %>%
+output_files <- dat_wide %>%
   group_split(class) %>%
-  lapply(envi_endmember)
+  vapply(envi_endmember, character(1))
+
+output_files
