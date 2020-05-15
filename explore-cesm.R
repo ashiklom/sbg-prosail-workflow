@@ -20,18 +20,32 @@ fname <- "CLM5_1584188701_f45_f45_mg37.clm2.h0.1857-02-01-00000.nc"
 fpath <- path(test_outdir, fname)
 
 # Download CLM
-if (!file_exists(path(test_outdir, fname))) {
+if (!file_exists(fpath)) {
   fosf_id <- "27a8v"
-  download.file(
-    path("https://osf.io", "download", fosf_id),
-    path(test_outdir, fname)
-  )
+  download.file(path("https://osf.io", "download", fosf_id), fpath)
 }
+
+clm_input_path <- path(test_outdir, "surfdata_4x5_hist_78pfts_CMIP6_simyr2000_c190214.nc")
+# Download CLM
+if (!file_exists(clm_input_path)) {
+  fosf_id <- "ftdzh"
+  download.file(path("https://osf.io", "download", fosf_id), clm_input_path)
+}
+
+innc <- ncdf4::nc_open(clm_input_path)
 
 wgs84 <- crs("+init=epsg:4326")
 
-landmask <- rnaturalearth::ne_download("small", "land", "physical",
-                                         returnclass = "sf") %>%
+landmask_file <- path("data", "landmask", "ne_110m_land.shp")
+if (!file_exists(landmask_file)) {
+  rnaturalearth::ne_download(
+    "small", "land", "physical",
+    returnclass = "sf", destdir = path_dir(landmask_file),
+    load = FALSE
+  )
+}
+
+landmask <- read_sf(landmask_file) %>%
   st_combine() %>%
   as_Spatial()
 
