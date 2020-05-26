@@ -15,6 +15,23 @@ stopifnot(
   requireNamespace("PEcAnRTM", quietly = TRUE)
 )
 
+# Spatial stuff
+wgs84 <- crs("+init=epsg:4326")
+
+landmask_file <- path("data", "landmask", "ne_110m_land.shp")
+if (!file_exists(landmask_file)) {
+  rnaturalearth::ne_download(
+    "small", "land", "physical",
+    returnclass = "sf", destdir = path_dir(landmask_file),
+    load = FALSE
+  )
+}
+
+landmask_sf <- read_sf(landmask_file)
+landmask <- landmask_sf %>%
+  st_combine() %>%
+  as_Spatial()
+
 test_outdir <- dir_create(here("data", "cesm", "monthly_test_run"))
 fname <- "CLM5_1584188701_f45_f45_mg37.clm2.h0.1857-02-01-00000.nc"
 fpath <- path(test_outdir, fname)
@@ -52,21 +69,6 @@ for (i in seq_len(nrow(nat_pft))) {
   }
 }
 
-wgs84 <- crs("+init=epsg:4326")
-
-landmask_file <- path("data", "landmask", "ne_110m_land.shp")
-if (!file_exists(landmask_file)) {
-  rnaturalearth::ne_download(
-    "small", "land", "physical",
-    returnclass = "sf", destdir = path_dir(landmask_file),
-    load = FALSE
-  )
-}
-
-landmask <- read_sf(landmask_file) %>%
-  st_combine() %>%
-  as_Spatial()
-
 elai_b <- brick(fpath, varname = "ELAI", crs = wgs84) %>%
   # Convert 0-360 to -180-180
   rotate()
@@ -84,29 +86,38 @@ wl <- 400:2500
 
 nwl <- length(wl)
 
+# Fill PROSPECT cells, so they match results
+xcoords <- c(seq(0, 180, 5), seq(-175, -5, 5))
+ycoords <- seq(-90, 90, 4)
+prospect_cells <- matrix(numeric(), ncell, 6)
+for (i in seq_len(ncell)) {
+  ilat <- which(ycoords == xy[i, "y"])
+  ilon <- which(xcoords == xy[i, "x"])
+  prospect_cells[i,] <- prospect_grid[ilon, ilat,]
+}
+
 # Now, run PROSPECT at each value
 result <- array(numeric(), c(ncell, nmonth, nwl, 4))
-pb <- progress::progress_bar$new(total = nn)
+pb <- progress::progress_bar$new(total = ncell)
 for (i in seq_len(ncell)) {
-  for (j in seq_len(nmonth)) {
-    ilat <- which(unique(xy[, "y"]) == xy[i, "y"])
-    ilon <- which(unique(xy[, "x"]) == xy[i, "x"])
-    prospect_params <- prospect_grid[ilon, ilat, ]
-    if (all(prospect_params == 0)) {
-      result[i, j, , ] <- NA
-    } else {
-      result[i, j, ,] <- PEcAnRTM::pro4sail(c(
-        # PROSPECT params: N Cab Car Cbrown Cw Cm
-        prospect_params,
-        # SAIL params
-        LIDFa = -0.35, LIDFb = -0.15, TypeLIDF = 1,
-        LAI = elai[i, j],
-        q = 0.01, tts = 30, tto = 10,
-        psi = 0, psoil = 0.7
-      ))
-    }
+  prospect_params <- prospect_cells[i, ]
+  if (all(prospect_params == 0)) {
+    result[i, , ,] <-  NA
     pb$tick()
+    next
   }
+  for (j in seq_len(nmonth)) {
+    result[i, j, ,] <- PEcAnRTM::pro4sail(c(
+      # PROSPECT params: N Cab Car Cbrown Cw Cm
+      prospect_params,
+      # SAIL params
+      LIDFa = -0.35, LIDFb = -0.15, TypeLIDF = 1,
+      LAI = elai[i, j],
+      q = 0.01, tts = 30, tto = 10,
+      psi = 0, psoil = 0.7
+    ))
+  }
+  pb$tick()
 }
 
 # Test the output
@@ -167,17 +178,17 @@ for (icell in seq_len(ncell)) {
   ilon <- which(londim$vals == xy[icell, "x"])
   ilat <- which(latdim$vals == xy[icell, "y"])
   # PROSPECT params
-  ncvar_put(outnc, prospect_N, prospect_grid[ilon, ilat, 1],
+  ncvar_put(outnc, prospect_N, prospect_cells[icell, 1],
             start = c(ilon, ilat), count = c(1, 1))
-  ncvar_put(outnc, prospect_Cab, prospect_grid[ilon, ilat, 2],
+  ncvar_put(outnc, prospect_Cab, prospect_cells[icell, 2],
             start = c(ilon, ilat), count = c(1, 1))
-  ncvar_put(outnc, prospect_Car, prospect_grid[ilon, ilat, 3],
+  ncvar_put(outnc, prospect_Car, prospect_cells[icell, 3],
             start = c(ilon, ilat), count = c(1, 1))
-  ncvar_put(outnc, prospect_Cbrown, prospect_grid[ilon, ilat, 4],
+  ncvar_put(outnc, prospect_Cbrown, prospect_cells[icell, 4],
             start = c(ilon, ilat), count = c(1, 1))
-  ncvar_put(outnc, prospect_Cw, prospect_grid[ilon, ilat, 5],
+  ncvar_put(outnc, prospect_Cw, prospect_cells[ilon, 5],
             start = c(ilon, ilat), count = c(1, 1))
-  ncvar_put(outnc, prospect_Cm, prospect_grid[ilon, ilat, 6],
+  ncvar_put(outnc, prospect_Cm, prospect_cells[ilon, 6],
             start = c(ilon, ilat), count = c(1, 1))
   # LAI from CLM
   ncvar_put(outnc, elai_nc, elai[icell,],
