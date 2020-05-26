@@ -61,4 +61,5 @@ ggplot() +
             data = nitrogen_df) +
   scale_fill_viridis_c(na.value = NA)
 
-ggsave("~/Pictures/clm-fake-n-map-3.png")
+ggsave("figures/clm-plsr-nitrogen-map.png", width = 10, height = 7,
+       dpi = 300)
