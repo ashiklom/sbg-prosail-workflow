@@ -24,15 +24,33 @@ if (!file_exists(fpath)) {
   fosf_id <- "27a8v"
   download.file(path("https://osf.io", "download", fosf_id), fpath)
 }
-
 clm_input_path <- path(test_outdir, "surfdata_4x5_hist_78pfts_CMIP6_simyr2000_c190214.nc")
-# Download CLM
 if (!file_exists(clm_input_path)) {
   fosf_id <- "ftdzh"
   download.file(path("https://osf.io", "download", fosf_id), clm_input_path)
 }
 
-innc <- ncdf4::nc_open(clm_input_path)
+clm_param_path <- path(test_outdir, "clm5_params.c171117.nc")
+if (!file_exists(clm_param_path)) {
+  fosf_id <- "t84u9"
+  download.file(path("https://osf.io", "download", fosf_id), clm_param_path)
+}
+
+ncparam <- nc_open(clm_param_path)
+nat_pfts <- trimws(ncvar_get(ncparam, "pftname")[1:15])
+
+innc <- nc_open(clm_input_path)
+nat_pft <- ncvar_get(innc, "PCT_NAT_PFT")
+
+pft_prospect <- read.csv("data/clm-pft-prosail-param.csv")
+pft_prospect_mat <- rbind(rep(0, 6), as.matrix(pft_prospect[,-1]))
+
+prospect_grid <- array(numeric(), c(dim(nat_pft)[1:2], ncol(pft_prospect_mat)))
+for (i in seq_len(nrow(nat_pft))) {
+  for (j in seq_len(ncol(nat_pft))) {
+    prospect_grid[i, j, ] <- (nat_pft[i, j, ] / 100) %*% pft_prospect_mat
+  }
+}
 
 wgs84 <- crs("+init=epsg:4326")
 
@@ -66,34 +84,34 @@ wl <- 400:2500
 
 nwl <- length(wl)
 
-# Set PROSPECT parameters
-# TODO: Cab, Car should vary seasonally
-N <- matrix(1 + rlnorm(nn, 0.3, 0.2), ncell, nmonth)
-Cab <- matrix(rtnorm(nn, 40, 10), ncell, nmonth)
-Car <- matrix(rlnorm(nn, 1, 1), ncell, nmonth)
-Cbrown <- matrix(rbeta(nn, 0.9, 1), ncell, nmonth)
-Cw <- matrix(rlnorm(nn, log(0.01), 1), ncell, nmonth)
-Cm <- matrix(rlnorm(nn, log(0.01), 1), ncell, nmonth)
-lidfa <- matrix(runif(nn, -0.4, -0.3), ncell, nmonth)
-lidfb <- matrix(runif(nn, -0.2, -0.1), ncell, nmonth)
-
 # Now, run PROSPECT at each value
 result <- array(numeric(), c(ncell, nmonth, nwl, 4))
 pb <- progress::progress_bar$new(total = nn)
-
 for (i in seq_len(ncell)) {
   for (j in seq_len(nmonth)) {
-    result[i, j, ,] <- PEcAnRTM::pro4sail(c(
-      N = N[i, j], Cab = Cab[i, j], Car = Car[i, j], Cbrown = Cbrown[i, j],
-      Cw = Cw[i, j], Cm = Cm[i, j],
-      LIDFa = lidfa[i, j], LIDFb = lidfb[i, j], TypeLIDF = 1,
-      LAI = elai[i, j],
-      q = 0.01, tts = 30, tto = 10,
-      psi = 0, psoil = 0.7
-    ))
+    ilat <- which(unique(xy[, "y"]) == xy[i, "y"])
+    ilon <- which(unique(xy[, "x"]) == xy[i, "x"])
+    prospect_params <- prospect_grid[ilon, ilat, ]
+    if (all(prospect_params == 0)) {
+      result[i, j, , ] <- NA
+    } else {
+      result[i, j, ,] <- PEcAnRTM::pro4sail(c(
+        # PROSPECT params: N Cab Car Cbrown Cw Cm
+        prospect_params,
+        # SAIL params
+        LIDFa = -0.35, LIDFb = -0.15, TypeLIDF = 1,
+        LAI = elai[i, j],
+        q = 0.01, tts = 30, tto = 10,
+        psi = 0, psoil = 0.7
+      ))
+    }
     pb$tick()
   }
 }
+
+# Test the output
+## iii <- which(!is.na(result[, 7, 5, 2]))
+## matplot(t(result[sample(iii, 100),7,,2]), type = "l")
 
 # Create output NetCDF file
 times <- colnames(elai) %>%
@@ -109,6 +127,20 @@ wavedim <- ncdim_def("wavelength", "nanometers", wl)
 
 fillval <- -999
 
+prospect_N <- ncvar_def("N", "1-Inf", list(londim, latdim), fillval,
+                        "effective number of leaf layers")
+prospect_Cab <- ncvar_def("Cab", "ug cm-2", list(londim, latdim), fillval,
+                          "chlorophyll content")
+prospect_Car <- ncvar_def("Car", "ug cm-2", list(londim, latdim), fillval,
+                          "carotenoid content")
+prospect_Cbrown <- ncvar_def("Cbrown", "0-1", list(londim, latdim), fillval,
+                             "brown matter content")
+prospect_Cw <- ncvar_def("Cw", "g cm-2", list(londim, latdim), fillval,
+                         "leaf water content")
+prospect_Cm <- ncvar_def("Cm", "ug cm-2", list(londim, latdim), fillval,
+                         "dry matter content")
+elai_nc <- ncvar_def("ELAI", "unitless", list(londim, latdim, timedim), fillval,
+                     "Effective leaf area index")
 bhr <- ncvar_def("bhr", "0-1", list(londim, latdim, timedim, wavedim), fillval,
                  "bi-hemispherical reflectance")
 hdr <- ncvar_def("hdr", "0-1", list(londim, latdim, timedim, wavedim), fillval,
@@ -120,8 +152,10 @@ bdr <- ncvar_def("bdr", "0-1", list(londim, latdim, timedim, wavedim), fillval,
 
 outdir <- dir_create(here("data", "outputs"))
 outnc <- nc_create(
-  path(outdir, "clm-monthly.nc"),
-  list(bhr, hdr, dhr, bdr),
+  path(outdir, "clm-monthly-withprospect.nc"),
+  list(prospect_N, prospect_Cab, prospect_Car, prospect_Cbrown,
+       prospect_Cw, prospect_Cm, elai_nc,
+       bhr, hdr, dhr, bdr),
   force_v4 = TRUE
 )
 
@@ -132,6 +166,23 @@ pb <- progress::progress_bar$new(total = ncell)
 for (icell in seq_len(ncell)) {
   ilon <- which(londim$vals == xy[icell, "x"])
   ilat <- which(latdim$vals == xy[icell, "y"])
+  # PROSPECT params
+  ncvar_put(outnc, prospect_N, prospect_grid[ilon, ilat, 1],
+            start = c(ilon, ilat), count = c(1, 1))
+  ncvar_put(outnc, prospect_Cab, prospect_grid[ilon, ilat, 2],
+            start = c(ilon, ilat), count = c(1, 1))
+  ncvar_put(outnc, prospect_Car, prospect_grid[ilon, ilat, 3],
+            start = c(ilon, ilat), count = c(1, 1))
+  ncvar_put(outnc, prospect_Cbrown, prospect_grid[ilon, ilat, 4],
+            start = c(ilon, ilat), count = c(1, 1))
+  ncvar_put(outnc, prospect_Cw, prospect_grid[ilon, ilat, 5],
+            start = c(ilon, ilat), count = c(1, 1))
+  ncvar_put(outnc, prospect_Cm, prospect_grid[ilon, ilat, 6],
+            start = c(ilon, ilat), count = c(1, 1))
+  # LAI from CLM
+  ncvar_put(outnc, elai_nc, elai[icell,],
+            start = c(ilon, ilat, 1), count = c(1, 1, -1))
+  # SAIL outputs
   ncvar_put(outnc, bhr, result[icell,,,1],
             start = c(ilon, ilat, 1, 1), count = c(1, 1, -1, -1))
   ncvar_put(outnc, hdr, result[icell,,,2],
@@ -145,17 +196,10 @@ for (icell in seq_len(ncell)) {
 
 nc_close(outnc)
 
-saveRDS(
-  list(xy = xy,
-       N = N, Cab = Cab, Car = Car, Cbrown, Cw = Cw, Cm = Cm,
-       lidfa = lidfa, lidfb = lidfb, lai = elai),
-  path(outdir, "clm-monthly-true-values.rds")
-)
-
 # Test the output file
 if (interactive()) {
-  nc2 <- nc_open(path(outdir, "clm-monthly.nc"))
-  zz <- ncvar_get(nc2, "bhr")
+  nc2 <- nc_open(path(outdir, "clm-monthly-withprospect.nc"))
+  zz <- ncvar_get(nc2, "hdr")
   nc_close()
 
   col <- colorRampPalette(c("blue3", "green3", "red3"))(12)
