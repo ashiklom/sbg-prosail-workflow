@@ -1,0 +1,15 @@
+pft, N, Cab, Car, Cbrown, Cw, Cm
+"needleleaf_evergreen_temperate_tree", 3.37, 56.2, 13.3, 0.501, 0.0191, 0.0193
+"needleleaf_evergreen_boreal_tree", 3.37, 56.2, 13.3, 0.501, 0.0191, 0.0193
+"needleleaf_deciduous_boreal_tree", 2.08, 53.1, 15.0, 0.07356, 0.0183, 0.0120
+"broadleaf_evergreen_tropical_tree", 2.52, 60.0, 17.7, 0.213, 0.0222, 0.0183
+"broadleaf_evergreen_temperate_tree", 2.52, 60.0, 17.7, 0.213, 0.0222, 0.0183
+"broadleaf_deciduous_tropical_tree", 1.55, 43.9, 13.3, 0.176, 0.0111, 0.00664
+"broadleaf_deciduous_temperate_tree", 1.55, 43.9, 13.3, 0.176, 0.0111, 0.00664
+"broadleaf_deciduous_boreal_tree", 1.55, 43.9, 13.3, 0.176, 0.0111, 0.00664
+"broadleaf_evergreen_shrub", 2.08, 61.3, 16.0, 0.101, 0.0210, 0.00706
+"broadleaf_deciduous_temperate_shrub", 1.55,  43.9,  13.3,  0.176, 0.0111, 0.00664
+"broadleaf_deciduous_boreal_shrub", 1.71,  44.7,  13.7, 0.0485, 0.0215, 0.00449
+"c3_arctic_grass", 1.62,  32.8,  10.3, 0.0262, 0.0121, 0.00433
+"c3_non-arctic_grass", 1.62,  32.8,  10.3, 0.0262, 0.0121, 0.00433
+"c4_grass", 1.28,  44.0,  8.46, 0.0687, 0.0119, 0.00460

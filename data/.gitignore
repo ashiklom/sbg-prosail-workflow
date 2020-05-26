@@ -1,0 +1,9 @@
+# Everything
+/*
+
+# ...except
+!.gitignore
+!hypertrace-endmembers
+!plsr-models
+plsr-models/PLSR_Coefficients
+!clm-pft-prosail-param.csv
