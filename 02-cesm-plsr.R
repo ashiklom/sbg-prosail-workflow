@@ -12,13 +12,17 @@ stopifnot(file_exists(plsrfile))
 dat <- fread(plsrfile)
 dat[, wavelength := as.numeric(gsub("Wave_", "", V1))]
 
+# PROSAIL is only 400-2500nm. This removes coefficients for wavelengths < 400
+# nm. Those coefficients are all zero anyway, so it shouldn't affect the results.
 dat_sub <- dat[!is.na(wavelength)][wavelength >= 400]
 intercept <- dat[V1 == "(Intercept)", Perc_N]
 waves <- dat_sub[["wavelength"]]
+# PROSAIL is 400-2500 nm. This converts wavelengths into integer indices (i.e.
+# 400 becomes 1, 401 becomes 2) for easier subsetting.
 iwaves <- waves - 399
 coefs <- dat_sub[["Perc_N"]]
 
-# Look at the coefficients
+# Plot the coefficients
 ggplot(dat[!is.na(wavelength)]) +
   aes(x = wavelength, y = Perc_N) +
   geom_line()
@@ -29,16 +33,22 @@ stopifnot(file_exists(clmfile))
 
 nc <- nc_open(clmfile)
 
+# NOTE: Just using hemispherical-directional reflectance here for now. In
+# reality, should probably use an average of hemispherical-directional and
+# bi-directional reflectance weighted by direct/diffuse incident solar
+# radiation, or something similar.
 refl <- ncvar_get(nc, "hdr", start = c(1, 1, 7, 1), count = c(-1, -1, 1, -1))
 lat <- ncvar_get(nc, "lat")
 lon <- ncvar_get(nc, "lon")
 refl_sub <- refl[,,iwaves]
 
-# Remove flat spectra (NA)
+# Set flat spectra (all reflectance = 0) to NA
 naspec <- apply(refl_sub, c(1, 2), function(x) all(x == 0))
 refl_sub[naspec] <- NA
 
 do_nitrogen <- function(x) {
+  # Model assumes that reflectance is in AVIRIS units, which are reflectance x
+  # 10000 (so they can be distributed as integers).
   intercept + sum(10000 * x * coefs)
 }
 
@@ -49,11 +59,10 @@ nitrogen_df <- expand.grid(lon = lon, lat = lat)
 nitrogen_df$nitrogen <- c(nitrogen)
 setDT(nitrogen_df)
 
+# Land polygons from Natural Earth. This should be downloaded by the
+# `01-cesm-prosail.R`.
 landmask_file <- path("data", "landmask", "ne_110m_land.shp")
 landmask_sf <- read_sf(landmask_file)
-landmask <- landmask_sf %>%
-  st_combine() %>%
-  as_Spatial()
 
 ggplot() +
   geom_sf(data = landmask_sf) +
